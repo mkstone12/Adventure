@@ -1,13 +1,12 @@
 package com.company;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
 
     public static void main() {
         //init room
-        Room currentRoom = null;
+        Room currentRoom;
         Room Room1 = new Room(null,null,null,null, "The Town");
         Room Room2 = new Room(null,null,null, null, "The valley");
         Room Room3 = new Room(null,null,null,null , "The clearing");
@@ -62,11 +61,11 @@ public class Adventure {
 
         //loop til at holde spillet kørende og boolean til at afbryde spillet
         boolean keepPlaying = true;
-        while(keepPlaying == true){
+        while(keepPlaying){
 
             //loop for at checke om input er godt. Beder om nyt hvis det ikke er.
             boolean goodChoice = false;
-            while(goodChoice == false){
+            while(!goodChoice){
 
                 String wrongWay = "You cannot go this way";
 
