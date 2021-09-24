@@ -91,7 +91,6 @@ public class Adventure {
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
-
                 else if(choice.equals("south") || choice.equals("go south")){
                     if(currentRoom.getSouth() == null)
                     {
@@ -129,7 +128,10 @@ public class Adventure {
                         System.out.println(currentRoom.getName());
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
-                }}
+                }
+
+                }
+
 
                 else if (choice.equals("look")){
                     System.out.println(currentRoom.getRoomDesc());
