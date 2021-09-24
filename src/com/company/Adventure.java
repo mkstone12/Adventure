@@ -145,8 +145,9 @@ public class Adventure {
 
                 else if(choice.equals("exit")){
                     keepPlaying = false;
+                    goodChoice= true;
                     System.out.println("Thanks for playing the adventure game");
-                    break;
+
                 }
 
             else{
