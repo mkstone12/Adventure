@@ -7,6 +7,7 @@ public class Room {
     private Room east;
     private Room west;
     private String name;
+    private String roomDesc;
 
     public Room(Room north, Room south, Room east, Room west, String name){
         this.north = north;
@@ -42,6 +43,12 @@ public class Room {
     }
     public Room getWest(){
         return west;
+    }
+    public String getRoomDesc(){
+        return roomDesc;
+    }
+    public void setRoomDesc(String roomDesc){
+        this.roomDesc = roomDesc;
     }
 }
 

@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
@@ -39,37 +40,115 @@ public class Adventure {
 
         currentRoom = Room1;
 
+        //Beskriv rum
+        Room1.setRoomDesc("A dark empty room in a cave. You can barely see the walls around you");
+        Room2.setRoomDesc("A small room lit by torches.");
+        Room3.setRoomDesc("A big painting covers the north wall. It looks like a demon of some sort.");
+        Room4.setRoomDesc("A room so small you can barely crawl through.");
+        Room5.setRoomDesc("A giant cavetroll with a club sits on a treasure chest. Your presence does not disturb him");
+        Room6.setRoomDesc("Shattered gargoyles decorate the west and east wall.");
+        Room7.setRoomDesc("An empty dark room.");
+        Room8.setRoomDesc("An empty dark room. A foul smell is coming from the north");
+        Room9.setRoomDesc("An empty dark room");
 
+
+        //Scanner til input
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Hey welcome to the Adventure game");
+        System.out.println("You find yourself in a dark room");
+
+        //loop til at holde spillet kørende og boolean til at afbryde spillet
+        boolean keepPlaying = true;
+        while(keepPlaying == true){
+
+            //loop for at checke om input er godt. Beder om nyt hvis det ikke er.
+            boolean goodChoice = false;
+            while(goodChoice == false){
+
+                String wrongWay = "You cannot go this way";
 
 
-        while(true){
-            System.out.println("you are in room "+ currentRoom.getName());
-            System.out.println("Which direction do you want to go?");
-        String choice = scanner.nextLine();
-        if (choice.equals("north")){
-            System.out.println("Going north");
-            currentRoom = currentRoom.getNorth();
-        }
-        else if(choice.equals("south")){
-            System.out.println("Going south");
-            currentRoom =currentRoom.getSouth();
-        }
-        else if(choice.equals("east")){
-            currentRoom =currentRoom.getEast();
-        }
-        else if(choice.equals("west")){
-            System.out.println("Going west");
-            currentRoom = currentRoom.getWest();
+                String choice = scanner.nextLine();
+                choice = choice.toLowerCase();
 
-        }
-        else if (choice.equals("look")){
-            System.out.println("looking around");
-            System.out.println(currentRoom.getName());
 
-        }
+                if (choice.equals("north") ||choice.equals("go north")){
+                    //Checker om det er muligt at gå den vej
+                    if(currentRoom.getNorth() == null)
+                    {
+                        System.out.println(wrongWay);
+                    }
+
+                    else{
+                        System.out.println("Going north");
+                        currentRoom = currentRoom.getNorth();
+                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getRoomDesc());
+                        goodChoice = true;
+                }}
+
+                else if(choice.equals("south") || choice.equals("go south")){
+                    if(currentRoom.getSouth() == null)
+                    {
+                        System.out.println(wrongWay);
+                    }
+                    else{
+                        System.out.println("Going south");
+                        currentRoom =currentRoom.getSouth();
+                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getRoomDesc());
+                        goodChoice = true;
+                }}
+
+                else if(choice.equals("east") ||choice.equals("go east")){
+                    if(currentRoom.getEast() == null)
+                    {
+                        System.out.println(wrongWay);
+                    }
+                    else{
+                        System.out.println("Going east");
+                        currentRoom =currentRoom.getEast();
+                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getRoomDesc());
+                        goodChoice = true;
+                }}
+
+                else if(choice.equals("west") || choice.equals("go west")){
+                    if(currentRoom.getWest() == null)
+                    {
+                        System.out.println(wrongWay);
+                    }
+                    else{
+                        System.out.println("Going west");
+                        currentRoom = currentRoom.getWest();
+                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getRoomDesc());
+                        goodChoice = true;
+                }}
+
+                else if (choice.equals("look")){
+                    System.out.println(currentRoom.getRoomDesc());
+                    goodChoice= true;
+                }
+
+                else if(choice.equals("help")){
+                    System.out.println("To go in any direction type that direction (north, south, east or west). " +
+                            "To get a description of where you are type look.");
+                }
+
+                else if(choice.equals("exit")){
+                    keepPlaying = false;
+                    System.out.println("Thanks for playing the adventure game");
+                    break;
+                }
+
+            else{
+                    System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
+            }
+            }
+
 
     }
-}}
+}
+}
