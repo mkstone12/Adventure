@@ -8,15 +8,15 @@ public class Adventure {
     public static void main() {
         //init room
         Room currentRoom = null;
-        Room Room1 = new Room(null,null,null,null, "Room 1");
-        Room Room2 = new Room(null,null,null, null, "Room 2");
-        Room Room3 = new Room(null,null,null,null , "Room 3");
-        Room Room4 = new Room(null,null,null,null, "Room 4");
+        Room Room1 = new Room(null,null,null,null, "The Town");
+        Room Room2 = new Room(null,null,null, null, "The valley");
+        Room Room3 = new Room(null,null,null,null , "The clearing");
+        Room Room4 = new Room(null,null,null,null, "Abandoned house");
         Room Room5 = new Room(null,null,null,null, "Room 5");
-        Room Room6 = new Room(null,null,null,null, "Room 6");
-        Room Room7 = new Room(null,null,null,null, "Room 7");
-        Room Room8 = new Room(null,null,null,null, "Room 8");
-        Room Room9 = new Room(null,null,null,null, "Room 9");
+        Room Room6 = new Room(null,null,null,null, "The old battlefield");
+        Room Room7 = new Room(null,null,null,null, "Bridge");
+        Room Room8 = new Room(null,null,null,null, "Monuments");
+        Room Room9 = new Room(null,null,null,null, "Tent Camp");
 
         //forbinder rum
         Room1.setEast(Room2);
@@ -41,22 +41,24 @@ public class Adventure {
         currentRoom = Room1;
 
         //Beskriv rum
-        Room1.setRoomDesc("A dark empty room in a cave. You can barely see the walls around you");
-        Room2.setRoomDesc("A small room lit by torches.");
-        Room3.setRoomDesc("A big painting covers the north wall. It looks like a demon of some sort.");
-        Room4.setRoomDesc("A room so small you can barely crawl through.");
-        Room5.setRoomDesc("A giant cavetroll with a club sits on a treasure chest. Your presence does not disturb him");
-        Room6.setRoomDesc("Shattered gargoyles decorate the west and east wall.");
-        Room7.setRoomDesc("An empty dark room.");
-        Room8.setRoomDesc("An empty dark room. A foul smell is coming from the north");
-        Room9.setRoomDesc("An empty dark room");
+        Room1.setRoomDesc("You are in a quiet town on the edge of the forest. The town is surrounded by mountains to the north and west");
+        Room2.setRoomDesc("You are standing a lush valley full of flowers. A large river runs to the south");
+        Room3.setRoomDesc("You enter a clearing in the woods. Seems like somebody made camp here. A red banner hangs from a tree .The forest to the east seems very thick");
+        Room4.setRoomDesc("A small wooden house appears. It seems to be abandoned. A large river flow to the east");
+        Room5.setRoomDesc("You see a large stone structure in front of you");
+        Room6.setRoomDesc("You stumble upon several corpses. A bloody battle has taken place here. There is a lot of debris to the west");
+        Room7.setRoomDesc("You see a bridge over the river. The forest seems to be thinning out to the south and west");
+        Room8.setRoomDesc("There two monuments to the north forming a gate. Ancient runes decorate them");
+        Room9.setRoomDesc("There are small tents arranged around a fire place. A Blue banner hangs from a tree.");
 
 
         //Scanner til input
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hey welcome to the Adventure game");
-        System.out.println("You find yourself in a dark room");
+        System.out.println("Hey welcome to the Adventure game. " +
+                "You are trying to find the secret treasure hidden in the forest\n"+
+                "The forest is know to be dangerous so keep on your guard.\n\n");
+        System.out.println(Room1.getRoomDesc());
 
         //loop til at holde spillet kørende og boolean til at afbryde spillet
         boolean keepPlaying = true;
@@ -83,7 +85,7 @@ public class Adventure {
                     else{
                         System.out.println("Going north");
                         currentRoom = currentRoom.getNorth();
-                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getName()+"\n");
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -96,7 +98,7 @@ public class Adventure {
                     else{
                         System.out.println("Going south");
                         currentRoom =currentRoom.getSouth();
-                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getName()+"\n");
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -109,7 +111,7 @@ public class Adventure {
                     else{
                         System.out.println("Going east");
                         currentRoom =currentRoom.getEast();
-                        System.out.println(currentRoom.getName());
+                        System.out.println(currentRoom.getName()+"\n");
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -122,8 +124,8 @@ public class Adventure {
                     else{
                         System.out.println("Going west");
                         currentRoom = currentRoom.getWest();
-                        System.out.println(currentRoom.getName());
-                        System.out.println(currentRoom.getRoomDesc());
+                        System.out.println(currentRoom.getName()+"\n");
+                        System.out.println(currentRoom.getRoomDesc()+);
                         goodChoice = true;
                 }}
 
