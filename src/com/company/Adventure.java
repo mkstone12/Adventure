@@ -39,14 +39,14 @@ public class Adventure {
 
         currentRoom = Room1;
 
-        //Beskriv rum
+        //Beskriver rum
         Room1.setRoomDesc("You are in a quiet town on the edge of the forest. The town is surrounded by mountains to the north and west");
         Room2.setRoomDesc("You are standing a lush valley full of flowers. A large river runs to the south");
         Room3.setRoomDesc("You enter a clearing in the woods. Seems like somebody made camp here. A red banner hangs from a tree. The forest to the east seems very thick");
         Room4.setRoomDesc("A small wooden house appears. It seems to be abandoned. A large river flow to the east");
         Room5.setRoomDesc("You see a large stone statue in front of you. It has a diamond shaped hole in its base");
         Room6.setRoomDesc("You stumble upon several corpses. A bloody battle has taken place here. There is a lot of debris to the west");
-        Room7.setRoomDesc("You see a bridge over the river. The forest seems to be thinning out to the south and west");
+        Room7.setRoomDesc("You see a bridge over the river. The forest seems to be thinning out to the south");
         Room8.setRoomDesc("There two monuments to the north forming a gate. Ancient runes decorate them");
         Room9.setRoomDesc("There are small tents arranged around a fire place. A corpse in blue uniform lays on the ground clutching something.");
 
@@ -84,9 +84,10 @@ public class Adventure {
                     }
 
                     else{
-                        System.out.println("Going north");
+                        //Skifter rum og printer navn og beskrivelse
+                        System.out.println("Going north\n");
                         currentRoom = currentRoom.getNorth();
-                        System.out.println(currentRoom.getName()+"\n");
+                        System.out.println(currentRoom.getName());
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -97,9 +98,9 @@ public class Adventure {
                         System.out.println(wrongWay);
                     }
                     else{
-                        System.out.println("Going south");
+                        System.out.println("Going south\n");
                         currentRoom =currentRoom.getSouth();
-                        System.out.println(currentRoom.getName()+"\n");
+                        System.out.println(currentRoom.getName());
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -110,9 +111,9 @@ public class Adventure {
                         System.out.println(wrongWay);
                     }
                     else{
-                        System.out.println("Going east");
+                        System.out.println("Going east\n");
                         currentRoom =currentRoom.getEast();
-                        System.out.println(currentRoom.getName()+"\n");
+                        System.out.println(currentRoom.getName());
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
@@ -123,9 +124,9 @@ public class Adventure {
                         System.out.println(wrongWay);
                     }
                     else{
-                        System.out.println("Going west");
+                        System.out.println("Going west\n");
                         currentRoom = currentRoom.getWest();
-                        System.out.println(currentRoom.getName()+"\n");
+                        System.out.println(currentRoom.getName());
                         System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
