@@ -125,7 +125,7 @@ public class Adventure {
                         System.out.println("Going west");
                         currentRoom = currentRoom.getWest();
                         System.out.println(currentRoom.getName()+"\n");
-                        System.out.println(currentRoom.getRoomDesc()+);
+                        System.out.println(currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
 
