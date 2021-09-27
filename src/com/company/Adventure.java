@@ -7,9 +7,9 @@ public class Adventure {
     public static void main() {
         //init room
         Room currentRoom;
-        Room Room1 = new Room(null,null,null,null, "The Town");
-        Room Room2 = new Room(null,null,null, null, "The valley");
-        Room Room3 = new Room(null,null,null,null , "The clearing");
+        Room Room1 = new Room(null,null,null,null, "Town");
+        Room Room2 = new Room(null,null,null, null, "Valley");
+        Room Room3 = new Room(null,null,null,null , "Clearing");
         Room Room4 = new Room(null,null,null,null, "Abandoned house");
         Room Room5 = new Room(null,null,null,null, "The statue");
         Room Room6 = new Room(null,null,null,null, "The old battlefield");
@@ -84,7 +84,7 @@ public class Adventure {
                     }
 
                     else{
-                        //Skifter rum og printer navn og beskrivelse
+                        //Skifter rum og printer navn og beskrivelse af nyt rum
                         System.out.println("Going north\n");
                         currentRoom = currentRoom.getNorth();
                         System.out.println(currentRoom.getName());
@@ -132,7 +132,7 @@ public class Adventure {
 
                 }
 
-
+                //andre kommandoer
                 else if (choice.equals("look")){
                     System.out.println(currentRoom.getRoomDesc());
                     goodChoice= true;
