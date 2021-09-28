@@ -25,7 +25,6 @@ public class Map {
         Room6.setSouth(Room9);
         Room7.setEast(Room8);
         Room8.setEast(Room9);
-
         currentRoom = Room1;
 
         //Beskriver rum
@@ -37,15 +36,12 @@ public class Map {
         Room6.setRoomDesc("You stumble upon several corpses. A bloody battle has taken place here. There is a lot of debris to the west");
         Room7.setRoomDesc("You see a bridge over the river. The forest seems to be thinning out to the south");
         Room8.setRoomDesc("There two monuments to the north forming a gate. Ancient runes decorate them");
-        Room9.setRoomDesc("There are small tents arranged around a fire place. A corpse in blue uniform lays on the ground clutching something.");
+        Room9.setRoomDesc("There are small tents arranged around a fire place. A corpse in blue uniform lays on the ground clutching a diamond.");
 
 
 
     }
 
-    public Room getRoom(){
-        return currentRoom;
-    }
 
     //init room
 

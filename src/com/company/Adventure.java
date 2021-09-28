@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
@@ -32,8 +33,7 @@ public class Adventure {
                 String wrongWay = "You cannot go this way";
 
 
-                String choice = scanner.nextLine();
-                choice = choice.toLowerCase();
+                String choice = scanner.nextLine().trim().toLowerCase();
 
 
                 if (choice.equals("north") ||choice.equals("go north")){
@@ -51,6 +51,8 @@ public class Adventure {
                         System.out.println(map.currentRoom.getRoomDesc());
                         goodChoice = true;
                 }}
+
+
                 else if(choice.equals("south") || choice.equals("go south")){
                     if(map.currentRoom.getSouth() == null)
                     {
