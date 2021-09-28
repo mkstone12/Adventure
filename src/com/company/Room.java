@@ -9,11 +9,7 @@ public class Room {
     private String name;
     private String roomDesc;
 
-    public Room(Room north, Room south, Room east, Room west, String name){
-        this.north = north;
-        this.south = south;
-        this.east = east;
-        this.west = west;
+    public Room(String name){
         this.name = name;
     }
 
@@ -22,15 +18,19 @@ public class Room {
     }
     public void setNorth(Room room){
         north = room;
+        room.south = this;
     }
     public void setSouth(Room room){
         south = room;
+        room.north = this;
     }
     public void setEast(Room room){
         east = room;
+        room.west = this;
     }
     public void setWest(Room room){
         west = room;
+        room.west = this;
     }
     public Room getNorth(){
         return north;
