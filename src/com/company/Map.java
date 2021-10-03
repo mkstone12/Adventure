@@ -27,6 +27,7 @@ public class Map {
         Room8.setEast(Room9);
         currentRoom = Room1;
 
+
         //Beskriver rum
         Room1.setRoomDesc("You are in a quiet town on the edge of the forest. The town is surrounded by mountains to the north and west");
         Room2.setRoomDesc("You are standing a lush valley full of flowers. A large river runs to the south");
@@ -40,10 +41,17 @@ public class Map {
 
 
 
+        Room1.addNewItem("lamp", "Shiny Lamp");
+        Room1.addNewItem("sword", "Giant two handed sword");
+        Room1.addNewItem("trash", "Pile of trash");
+        Room1.addNewItem("carpet", "B");
+
+        Room2.addNewItem("axe", " asd");
+        Room2.addNewItem("food", "asd");
+
+
     }
 
-
-    //init room
 
 
 }
