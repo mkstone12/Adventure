@@ -41,12 +41,14 @@ public class Map {
 
 
 
-        Room1.addNewItem("lamp", "Shiny Lamp");
-        Room1.addNewItem("sword", "Giant two handed sword");
-        Room1.addNewItem("carpet");
+        Room1.addNewItem("lamp", "Shiny Lamp", 5);
+        Room1.addNewItem("sword", "Giant two handed sword", 40);
+        Room1.addNewItem("carpet", "Purple Carpet", 30);
 
-        Room2.addNewItem("axe", " asd");
-        Room2.addNewItem("bread", "asd");
+        Room2.addNewItem("axe", "bloody axe", 13);
+        Room2.addNewItem("bread", "moldy bread", 1);
+
+        Room9.addNewItem("Diamond","Diamond", 5);
 
 
     }

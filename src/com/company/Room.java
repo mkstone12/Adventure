@@ -54,8 +54,8 @@ public class Room {
         this.roomDesc = roomDesc;
     }
 
-    public void addNewItem(String name, String longName){
-        Item item = new Item(name,longName);
+    public void addNewItem(String name, String longName,int weight){
+        Item item = new Item(name,longName,weight);
         items.add(item);
     }
 
