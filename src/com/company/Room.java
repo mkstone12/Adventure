@@ -59,11 +59,6 @@ public class Room {
         items.add(item);
     }
 
-    public void addNewItem(String name){
-        Item item = new Item(name);
-        items.add(item);
-    }
-
 
     public void addItem(Item item){
         items.add(item);

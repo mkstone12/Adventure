@@ -48,7 +48,21 @@ public class Map {
         Room2.addNewItem("axe", "bloody axe", 13);
         Room2.addNewItem("bread", "moldy bread", 1);
 
-        Room9.addNewItem("Diamond","Diamond", 5);
+        Room3.addNewItem("log","Giant Log", 99);
+
+        Room4.addNewItem("key","Old Key", 1);
+
+        Room5.addNewItem("rock","Big Rocky Rock", 99);
+
+        Room6.addNewItem("corpse","Rotten Corpse", 75);
+
+        Room7.addNewItem("eel","Slimey Eel", 14);
+
+        Room8.addNewItem("umbrella","Red Umbrella", 4);
+
+        Room9.addNewItem("diamond","Diamond", 5);
+        Room9.addNewItem("spear","Very Long Spear", 25);
+
 
 
     }
