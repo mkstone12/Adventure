@@ -47,7 +47,7 @@ public class Map {
         Room1.addNewItem("carpet", "B");
 
         Room2.addNewItem("axe", " asd");
-        Room2.addNewItem("food", "asd");
+        Room2.addNewItem("bread", "asd");
 
 
     }
