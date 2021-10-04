@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +13,6 @@ public class Adventure {
         map.createMap();
         Player player = new Player();
         player.setCurrentRoom(map.currentRoom);
-        System.out.println(player.getCurrentRoom().getName());
 
         String choice;
 
@@ -25,8 +25,8 @@ public class Adventure {
                 The forest is know to be dangerous so keep on your guard.
 
                 """);
-        System.out.println(map.Room1.getRoomDesc());
-        System.out.println(map.currentRoom.getAllItems());
+
+        printCurRoomInfo(map);
 
         //loop til at holde spillet kørende
         while(keepPlaying){
@@ -53,14 +53,14 @@ public class Adventure {
 
             if (choice.substring(0,4).equals("take")){
                 String item = choice.trim().substring(5);
-                for (int i=0;i < map.currentRoom.getAllItems().size();i++)
+                for (int i=0;i < map.currentRoom.getAllItems().size();i++){
                     if(item.equals(map.currentRoom.getAllItems().get(i))){
                         player.takeItem(map.currentRoom.getItem(item));
                         break;
                     }
                     else if (i == map.currentRoom.getAllItems().size()-1){
                         System.out.println("Items does not exist");
-                    }
+                    }}
 
                     isTakeOrDrop = true;
                     goodChoice = true;
@@ -68,19 +68,20 @@ public class Adventure {
 
             }
             //Hvis vi skal smide noget væk
-            else if (choice.substring(0,4).equals("drop")){
+            if (choice.substring(0,4).equals("drop")){
                 String item = choice.trim().substring(5);
-                for (int i=0;i < player.getPlayerItems().size();i++)
+                for (int i=0;i < map.currentRoom.getAllItems().size();i++){
                     if(item.equals(player.getPlayerItems().get(i))){
-                        player.dropItem(item);
-                        System.out.println("You have dropped the " + item);
+                        player.dropItem((item));
                         break;
                     }
                     else if (i == map.currentRoom.getAllItems().size()-1){
-                        System.out.println("You do not have this item");
-                    }
-                    isTakeOrDrop = true;
-                    goodChoice = true;
+                        System.out.println("Items does not exist");
+                    }}
+
+                isTakeOrDrop = true;
+                goodChoice = true;
+
 
             }
         }
@@ -152,8 +153,13 @@ public class Adventure {
 
             }
             case "inventory", "i" ->{
-                System.out.println(player.getPlayerWeight());
-                System.out.println(player.getPlayerItems());
+                System.out.println("You are carrying " +player.getPlayerWeight() + " out of 100");
+                System.out.println("Name "  + "Weight");
+                ArrayList<String> playerItem =player.getPlayerItems();
+                for (int i = 0; i< playerItem.size(); i++){
+
+                    System.out.println(playerItem.get(i) + " " +player.getItemWeight(playerItem.get(i)));
+                }
               }
 
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
@@ -170,7 +176,12 @@ public class Adventure {
     public static void printCurRoomInfo(Map map){
         System.out.println(map.currentRoom.getName());
         System.out.println(map.currentRoom.getRoomDesc());
-        System.out.println(map.currentRoom.getAllItems());
+        System.out.println("Items in this room:");
+        System.out.println("Name/"  + "Weight");
+        for (int i = 0; i< map.currentRoom.getAllItems().size(); i++){
+
+            System.out.println(map.currentRoom.getAllItems().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
+        }
     }
 
 

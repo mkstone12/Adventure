@@ -90,6 +90,10 @@ public class Room {
         return stringItems;
     }
 
+    public ArrayList<Item> getItemArrayList(){
+        return items;
+    }
+
     public Item getItem(String itemName){
         Item item = null;
         for(int i = 0; i < items.size(); i++){
