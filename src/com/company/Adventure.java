@@ -49,7 +49,7 @@ public class Adventure {
         boolean goodChoice = false;
         boolean isTakeOrDrop = false;
         ArrayList<String> items = map.currentRoom.getAllItems();
-        if (choice.length() > 3) {
+        if (choice.length() > 4) {
 
             if (choice.substring(0,4).equals("take")){
                 String item = choice.trim().substring(5);
