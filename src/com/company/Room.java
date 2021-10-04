@@ -40,11 +40,11 @@ public class Room {
 
     public void setDown(Room room){
         down = room;
-        room.down = this;
+        room.up = this;
     }
     public void setUp(Room room){
         up = room;
-        room.up = this;
+        room.down = this;
     }
     public Room getNorth(){
         return north;
