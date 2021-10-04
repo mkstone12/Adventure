@@ -55,8 +55,7 @@ public class Adventure {
                 String item = choice.trim().substring(5);
                 for (int i=0;i < map.currentRoom.getAllItems().size();i++)
                     if(item.equals(map.currentRoom.getAllItems().get(i))){
-                        player.takeItem(item);
-                        System.out.println("You have taken the " + item);
+                        player.takeItem(map.currentRoom.getItem(item));
                         break;
                     }
                     else if (i == map.currentRoom.getAllItems().size()-1){
@@ -152,8 +151,10 @@ public class Adventure {
 
 
             }
-            case "inventory", "i" ->
+            case "inventory", "i" ->{
+                System.out.println(player.getPlayerWeight());
                 System.out.println(player.getPlayerItems());
+              }
 
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
 

@@ -89,5 +89,16 @@ public class Room {
 
         return stringItems;
     }
+
+    public Item getItem(String itemName){
+        Item item = null;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(itemName)){
+            item = items.get(i);
+            }
+
+        }
+        return item;
+    }
 }
 
