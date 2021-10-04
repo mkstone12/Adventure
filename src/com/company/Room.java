@@ -33,8 +33,9 @@ public class Room {
     }
     public void setWest(Room room){
         west = room;
-        room.west = this;
+        room.east = this;
     }
+
     public Room getNorth(){
         return north;
     }

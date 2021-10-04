@@ -177,7 +177,7 @@ public class Adventure {
         System.out.println(map.currentRoom.getName());
         System.out.println(map.currentRoom.getRoomDesc());
         System.out.println("Items in this room:");
-        System.out.println("Name/"  + "Weight");
+        System.out.println("Name "  + "Weight");
         for (int i = 0; i< map.currentRoom.getAllItems().size(); i++){
 
             System.out.println(map.currentRoom.getAllItems().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
