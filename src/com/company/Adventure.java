@@ -71,12 +71,12 @@ public class Adventure {
             //Hvis vi skal smide noget væk
             if (choice.substring(0,4).equals("drop")){
                 String item = choice.trim().substring(5);
-                for (int i=0;i < map.currentRoom.getAllItems().size()+1;i++){
+                for (int i=0;i < player.getPlayerItems().size();i++){
                     if(item.equals(player.getPlayerItems().get(i))){
                         player.dropItem((item));
                         break;
                     }
-                    else if (i == map.currentRoom.getAllItems().size()+1){
+                    else if (i == player.getPlayerItems().size()){
                         System.out.println("Items does not exist");
                     }}
 

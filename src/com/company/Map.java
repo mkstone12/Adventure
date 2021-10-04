@@ -67,7 +67,6 @@ public class Map {
 
         Room9.addNewItem("diamond","Diamond", 5);
         Room9.addNewItem("spear","Very Long Spear", 25);
-        Room5Underground.addNewItem("test","test",32);
 
 
 
