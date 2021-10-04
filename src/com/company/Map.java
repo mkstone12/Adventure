@@ -23,13 +23,12 @@ public class Map {
         Room3.setSouth(Room6);
         Room4.setSouth(Room7);
         Room5.setSouth(Room8);
-        Room5.setDown(Room5Underground);
         Room6.setSouth(Room9);
         Room7.setEast(Room8);
         Room8.setEast(Room9);
         currentRoom = Room1;
         //Underjords rum
-        Room5Underground.setUp(Room5);
+
 
 
 
@@ -70,6 +69,14 @@ public class Map {
 
 
 
+    }
+
+    public void dungMap(){
+        System.out.println("The diamond fits perfectly in the hole in the status. The statue moves and stairs appear below it\n" +
+                "You dont think you would be able to remove the diamond again");
+        Room5Underground.setUp(Room5);
+        Room5.removeItem("diamond");
+        Room5.setRoomDesc("There is stairs going underground and a large stone statue behind it");
     }
 
 

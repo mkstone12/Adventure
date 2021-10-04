@@ -36,7 +36,12 @@ public class Adventure {
             while(!goodChoice){
                 choice = scanner.nextLine().trim().toLowerCase();
                 //Check for at se om vi skal samle eller smide noget væk
-                    goodChoice = Command(map, choice, player);}
+                    goodChoice = Command(map, choice, player);
+
+            for (int i = 0; i < map.Room5.getAllItems().size();i++){
+                if (map.Room5.getAllItems().get(i).equals("diamond")){
+                    map.dungMap();
+                }}}
 
     }}
 
@@ -162,8 +167,8 @@ public class Adventure {
 
             }
             case "help" ->
-                System.out.println("To go in any direction type that direction (north, south, east or west). " +
-                        "To get a description of where you are type look.");
+                System.out.println("To go in any direction type that direction (north, south, east, west, up or down). " +
+                        "To get a description of where you are, type look.");
 
 
             case "quit", "exit" -> {
@@ -175,7 +180,6 @@ public class Adventure {
             }
             case "inventory", "i" ->{
                 System.out.println("You are carrying " +player.getPlayerWeight() + " out of 100");
-                System.out.println("Name "  + "Weight");
                 ArrayList<String> playerItem =player.getPlayerItems();
                 for (int i = 0; i< playerItem.size(); i++){
 
@@ -197,13 +201,13 @@ public class Adventure {
     public static void printCurRoomInfo(Map map){
         System.out.println(map.currentRoom.getName());
         System.out.println(map.currentRoom.getRoomDesc());
+        if(map.currentRoom.getAllItems().size() != 0){
         System.out.println("Items in this room:");
-        System.out.println("Name "  + "Weight");
         for (int i = 0; i< map.currentRoom.getAllItems().size(); i++){
 
             System.out.println(map.currentRoom.getAllItems().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
         }
-    }
+    }}
 
 
     }
