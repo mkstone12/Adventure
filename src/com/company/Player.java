@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> items = new ArrayList<>();
-    private int maxWeight;
+    private int maxWeight = 100;
 
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
@@ -14,10 +14,14 @@ public class Player {
         return currentRoom;
     }
 
-    public void takeItem(String name){
-        Item item = new Item(name);
-        items.add(item);
-        currentRoom.removeItem(name);
+    public void takeItem(Item item){
+        if(getPlayerWeight()+ item.getWeight() < maxWeight){
+            items.add(item);
+            currentRoom.removeItem(item.getName());
+            System.out.println("You have taken the " + item.getName());}
+        else{
+            System.out.println("You cannot carry anymore");
+        }
     }
 
     public void dropItem(String name){

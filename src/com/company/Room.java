@@ -59,11 +59,6 @@ public class Room {
         items.add(item);
     }
 
-    public void addNewItem(String name){
-        Item item = new Item(name);
-        items.add(item);
-    }
-
 
     public void addItem(Item item){
         items.add(item);
@@ -93,6 +88,17 @@ public class Room {
         }
 
         return stringItems;
+    }
+
+    public Item getItem(String itemName){
+        Item item = null;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(itemName)){
+            item = items.get(i);
+            }
+
+        }
+        return item;
     }
 }
 

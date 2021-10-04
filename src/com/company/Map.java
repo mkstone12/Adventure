@@ -41,7 +41,7 @@ public class Map {
 
 
 
-        Room1.addNewItem("lamp", "Shiny Lamp", 5);
+        Room1.addNewItem("lamp", "Shiny Lamp", 99);
         Room1.addNewItem("sword", "Giant two handed sword", 40);
         Room1.addNewItem("carpet", "Purple Carpet", 30);
 
