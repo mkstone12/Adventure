@@ -3,6 +3,7 @@ package com.company;
 public class Item {
     private String name;
     private String longName;
+    private int weight;
 
     public Item(String name, String longName){
         this.name = name;

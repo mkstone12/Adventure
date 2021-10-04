@@ -43,8 +43,7 @@ public class Map {
 
         Room1.addNewItem("lamp", "Shiny Lamp");
         Room1.addNewItem("sword", "Giant two handed sword");
-        Room1.addNewItem("trash", "Pile of trash");
-        Room1.addNewItem("carpet", "B");
+        Room1.addNewItem("carpet");
 
         Room2.addNewItem("axe", " asd");
         Room2.addNewItem("food", "asd");
