@@ -14,6 +14,8 @@ public class Adventure {
         player.setCurrentRoom(map.currentRoom);
         System.out.println(player.getCurrentRoom().getName());
 
+        String choice;
+
 
         //Scanner til input
         Scanner scanner = new Scanner(System.in);
@@ -23,8 +25,6 @@ public class Adventure {
                 The forest is know to be dangerous so keep on your guard.
 
                 """);
-
-
         System.out.println(map.Room1.getRoomDesc());
         System.out.println(map.currentRoom.getAllItems());
 
@@ -34,50 +34,9 @@ public class Adventure {
             //loop for at checke om input er godt. Beder om nyt hvis det ikke er.
             boolean goodChoice = false;
             while(!goodChoice){
-                String choice = scanner.nextLine().trim().toLowerCase();
+                choice = scanner.nextLine().trim().toLowerCase();
                 //Check for at se om vi skal samle eller smide noget væk
-                if (choice.length() < 3) {
                     goodChoice = Command(map, choice, player);}
-
-
-                else {
-
-                    //Hvis vi skal samle noget op
-                    if (choice.substring(0,4).equals("take")){
-                        String item = choice.trim().substring(5);
-                        for (int i=0;i < map.currentRoom.getAllItems().size();i++)
-                            if(item.equals(map.currentRoom.getAllItems().get(i))){
-                                player.takeItem(item);
-                                System.out.println("You have taken the " + item);
-                                break;
-                            }
-                        else if (i == map.currentRoom.getAllItems().size()-1){
-                                System.out.println("Items does not exist");
-                            }
-
-
-                    }
-                    //Hvis vi skal smide noget væk
-                    else if (choice.substring(0,4).equals("drop")){
-                        String item = choice.trim().substring(5);
-                        for (int i=0;i < player.getPlayerItems().size();i++)
-                            if(item.equals(player.getPlayerItems().get(i))){
-                                player.dropItem(item);
-                                System.out.println("You have dropped the " + item);
-                                break;
-                            }
-                            else if (i == map.currentRoom.getAllItems().size()-1){
-                                System.out.println("You do not have this item");
-                            }
-                    }
-
-                    //Hvis vi ikke skal samle eller smide noget væk
-                    else{
-                        goodChoice = Command(map, choice, player);}
-                    }
-                }
-
-
 
     }}
 
@@ -85,9 +44,51 @@ public class Adventure {
 
 
 
+
     public static boolean Command(Map map,  String choice, Player player){
         boolean goodChoice = false;
+        boolean isTakeOrDrop = false;
+        ArrayList<String> items = map.currentRoom.getAllItems();
+        if (choice.length() > 3) {
+
+            if (choice.substring(0,4).equals("take")){
+                String item = choice.trim().substring(5);
+                for (int i=0;i < map.currentRoom.getAllItems().size();i++)
+                    if(item.equals(map.currentRoom.getAllItems().get(i))){
+                        player.takeItem(item);
+                        System.out.println("You have taken the " + item);
+                        break;
+                    }
+                    else if (i == map.currentRoom.getAllItems().size()-1){
+                        System.out.println("Items does not exist");
+                    }
+
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
+
+            }
+            //Hvis vi skal smide noget væk
+            else if (choice.substring(0,4).equals("drop")){
+                String item = choice.trim().substring(5);
+                for (int i=0;i < player.getPlayerItems().size();i++)
+                    if(item.equals(player.getPlayerItems().get(i))){
+                        player.dropItem(item);
+                        System.out.println("You have dropped the " + item);
+                        break;
+                    }
+                    else if (i == map.currentRoom.getAllItems().size()-1){
+                        System.out.println("You do not have this item");
+                    }
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
+            }
+        }
+
+
         String wrongWay = "You cannot go this way";
+        if(isTakeOrDrop ==false){
         switch (choice) {
             case "north", "n", "go north" -> {
                 //Checker om det er muligt at gå den vej
@@ -154,11 +155,12 @@ public class Adventure {
             case "inventory", "i" ->
                 System.out.println(player.getPlayerItems());
 
-
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
 
 
-        }
+        }}
+
+
         player.setCurrentRoom(map.currentRoom);
         return goodChoice;
 

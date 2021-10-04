@@ -21,5 +21,9 @@ public class Item {
         return longName;
     }
 
+    public int getWeight(){
+        return weight;
+    }
+
 
 }
