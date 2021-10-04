@@ -66,6 +66,7 @@ public class Adventure {
                     goodChoice = true;
 
 
+
             }
             //Hvis vi skal smide noget væk
             else if (choice.substring(0,4).equals("drop")){
@@ -127,6 +128,26 @@ public class Adventure {
                 } else {
                     System.out.println("Going west\n");
                     map.currentRoom = map.currentRoom.getWest();
+                    printCurRoomInfo(map);
+                    goodChoice = true;
+                }
+            }
+            case "down", "d", "go down" -> {
+                if (map.currentRoom.getDown() == null) {
+                    System.out.println(wrongWay);
+                } else {
+                    System.out.println("Going down\n");
+                    map.currentRoom = map.currentRoom.getDown();
+                    printCurRoomInfo(map);
+                    goodChoice = true;
+                }
+            }
+            case "up", "u", "go up" -> {
+                if (map.currentRoom.getUp() == null) {
+                    System.out.println(wrongWay);
+                } else {
+                    System.out.println("Going up\n");
+                    map.currentRoom = map.currentRoom.getUp();
                     printCurRoomInfo(map);
                     goodChoice = true;
                 }

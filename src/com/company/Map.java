@@ -12,6 +12,7 @@ public class Map {
     Room Room7 = new Room("Bridge");
     Room Room8 = new Room("Monuments");
     Room Room9 = new Room("Tent Camp");
+    Room Room5Underground = new Room("Under statue");
     Room currentRoom = Room1;
 
     public void createMap(){
@@ -22,10 +23,14 @@ public class Map {
         Room3.setSouth(Room6);
         Room4.setSouth(Room7);
         Room5.setSouth(Room8);
+        Room5.setDown(Room5Underground);
         Room6.setSouth(Room9);
         Room7.setEast(Room8);
         Room8.setEast(Room9);
         currentRoom = Room1;
+        //Underjords rum
+        Room5Underground.setUp(Room5);
+
 
 
         //Beskriver rum
@@ -38,10 +43,10 @@ public class Map {
         Room7.setRoomDesc("You see a bridge over the river. The forest seems to be thinning out to the south");
         Room8.setRoomDesc("There two monuments to the north forming a gate. Ancient runes decorate them");
         Room9.setRoomDesc("There are small tents arranged around a fire place. A corpse in blue uniform lays on the ground clutching a diamond.");
+        Room5Underground.setRoomDesc("You are underneath the stone statue");
 
 
-
-        Room1.addNewItem("lamp", "Shiny Lamp", 99);
+        Room1.addNewItem("lamp", "Shiny Lamp", 5);
         Room1.addNewItem("sword", "Giant two handed sword", 40);
         Room1.addNewItem("carpet", "Purple Carpet", 30);
 

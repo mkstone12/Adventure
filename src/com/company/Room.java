@@ -8,6 +8,8 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
+    private Room down;
+    private Room up;
     private String name;
     private String roomDesc;
     private ArrayList<Item> items = new ArrayList<>();
@@ -35,6 +37,14 @@ public class Room {
         west = room;
         room.west = this;
     }
+    public void setDown(Room room){
+        down = room;
+        room.down = this;
+    }
+    public void setUp(Room room){
+        up = room;
+        room.up = this;
+    }
     public Room getNorth(){
         return north;
     }
@@ -46,6 +56,14 @@ public class Room {
     }
     public Room getWest(){
         return west;
+    }
+
+    public Room getDown(){
+        return down;
+    }
+
+    public Room getUp(){
+        return up;
     }
     public String getRoomDesc(){
         return roomDesc;
