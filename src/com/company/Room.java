@@ -90,20 +90,19 @@ public class Room {
     }}}
 
 
-    public String getItemName(String name){
-        String currentItem = null;
-        for (int i=0; i < items.size();i++){
-            if (items.get(i).getName().equals(name)){
-                currentItem = items.get(i).getName();
-            }
-        }
-        return currentItem;
-    }
-
     public ArrayList<String> getAllItems() {
         ArrayList<String> stringItems = new ArrayList<>();
         for (int i = 0; i < items.size(); i++){
             stringItems.add(items.get(i).getName()) ;
+        }
+
+        return stringItems;
+    }
+
+    public ArrayList<String> getAllItemLong() {
+        ArrayList<String> stringItems = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++){
+            stringItems.add(items.get(i).getLongName()) ;
         }
 
         return stringItems;

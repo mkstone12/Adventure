@@ -53,10 +53,10 @@ public class Adventure {
     public static boolean Command(Map map,  String choice, Player player){
         boolean goodChoice = false;
         boolean isTakeOrDrop = false;
-        ArrayList<String> items = map.currentRoom.getAllItems();
+
         if (choice.length() > 4) {
 
-            if (choice.substring(0,4).equals("take")){
+            if (choice.startsWith("take")){
                 String item = choice.trim().substring(5);
                 for (int i=0;i < map.currentRoom.getAllItems().size();i++){
                     if(item.equals(map.currentRoom.getAllItems().get(i))){
@@ -74,7 +74,7 @@ public class Adventure {
 
             }
             //Hvis vi skal smide noget væk
-            if (choice.substring(0,4).equals("drop")){
+            if (choice.startsWith("drop")){
                 String item = choice.trim().substring(5);
                 for (int i=0;i < player.getPlayerItems().size();i++){
                     if(item.equals(player.getPlayerItems().get(i))){
@@ -94,7 +94,8 @@ public class Adventure {
 
 
         String wrongWay = "You cannot go this way";
-        if(isTakeOrDrop ==false){
+
+        if(!isTakeOrDrop){
         switch (choice) {
             case "north", "n", "go north" -> {
                 //Checker om det er muligt at gå den vej
@@ -108,6 +109,7 @@ public class Adventure {
                     goodChoice = true;
                 }
             }
+
             case "south", "s", "go south" -> {
                 if (map.currentRoom.getSouth() == null) {
                     System.out.println(wrongWay);
@@ -181,11 +183,14 @@ public class Adventure {
             case "inventory", "i" ->{
                 System.out.println("You are carrying " +player.getPlayerWeight() + " out of 100");
                 ArrayList<String> playerItem =player.getPlayerItems();
+                String item;
                 for (int i = 0; i< playerItem.size(); i++){
-
-                    System.out.println(playerItem.get(i) + " " +player.getItemWeight(playerItem.get(i)));
+                    item = playerItem.get(i);
+                    item = item.substring(0,1).toUpperCase() + item.substring(1);
+                    System.out.println(item + " " +player.getItemWeight(playerItem.get(i)));
                 }
               }
+
 
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
 
@@ -205,7 +210,7 @@ public class Adventure {
         System.out.println("Items in this room:");
         for (int i = 0; i< map.currentRoom.getAllItems().size(); i++){
 
-            System.out.println(map.currentRoom.getAllItems().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
+            System.out.println(map.currentRoom.getAllItemLong().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
         }
     }}
 
