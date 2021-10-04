@@ -36,5 +36,15 @@ public class Player {
 
         return stringItems;
     }
+
+    public int getPlayerWeight(){
+        int playerWeight = 0;
+        for (int i = 0; i <items.size();i++){
+            playerWeight += items.get(i).getWeight();
+        }
+
+        return playerWeight;
+    }
+
 }
 
