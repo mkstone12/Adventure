@@ -28,6 +28,7 @@ public class Player {
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(name)){
                 currentRoom.addItem(items.get(i));
+                System.out.println("You have dropped the " + items.get(i).getName());
                 items.remove(i);
     }}}
 
@@ -48,6 +49,17 @@ public class Player {
         }
 
         return playerWeight;
+    }
+
+    public int getItemWeight(String name){
+        int weight = 0;
+        for (int i=0; i < items.size();i++){
+            if (items.get(i).getName().equals(name)){
+                weight = items.get(i).getWeight();
+            }}
+        return weight;
+
+
     }
 
 }
