@@ -10,10 +10,6 @@ public class Item {
         this.longName = longName;
         this.weight = weight;
     }
-    public Item(String name){
-        this.name = name;
-        longName = null;
-    }
 
     public String getName(){
         return name;
