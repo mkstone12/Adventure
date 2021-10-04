@@ -156,6 +156,8 @@ public class Adventure {
 
 
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");
+
+
         }
         player.setCurrentRoom(map.currentRoom);
         return goodChoice;
