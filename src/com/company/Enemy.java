@@ -20,10 +20,10 @@ public class Enemy {
     public String enemyAttack(int attackDamage, int playerHealth, String enemyName){
         playerHealth = playerHealth - attackDamage;
         return enemyName+" attacked you!\nYou are at "+playerHealth+" health";
-    }
+    }}
 
 /*    public String enemyTakeDamage(int enemyHealth, int playerAttack, String enemyName){
 
 
-    }*/
+    }
 }

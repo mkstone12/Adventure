@@ -11,22 +11,45 @@ public class Player {
     private Item_Weapon weaponEquiped;
 
 
-    public void setCurrentRoom(Room currentRoom){
+    public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
-    public Room getCurrentRoom(){
+
+    public Room getCurrentRoom() {
         return currentRoom;
     }
 
-    public void takeItem(Item item){
-        if(getPlayerWeight()+ item.getWeight() < maxWeight){
+    public void takeItem(Item item) {
+        if (getPlayerWeight() + item.getWeight() < maxWeight) {
             items.add(item);
             currentRoom.removeItem(item.getName());
-            System.out.println("You have taken the " + item.getName());}
-        else{
+            System.out.println("You have taken the " + item.getName());
+        } else {
             System.out.println("You cannot carry anymore");
         }
     }
+    public void equipWeapon(Item_Weapon weapon){
+        for (int i=0; i < items.size();i++){
+            if (items.get(i).getName().equals(weapon.name)){
+                weaponEquiped = weapon;
+                itemEquiped = true;
+                System.out.println("You have equipped "+weaponEquiped+".");
+            }
+            else {
+                System.out.println("You do not have that item in your inventory");
+            }
+        }
+    }
+    public void unequipWeapon(Item_Weapon weapon, Item_Weapon weaponEquiped){
+        for (int i=0; i < items.size();i++){
+            if (items.get(i).getName().equals(weaponEquiped.name)){
+                System.out.println("You have unequipped "+weaponEquiped+".");
+                weaponEquiped = null;
+                itemEquiped = false;
+            } else {
+                System.out.println("You do not have that item equipped");}
+    }}
+
 
     public void dropItem(String name){
         for (int i=0; i < items.size();i++){
