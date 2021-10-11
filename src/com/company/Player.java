@@ -6,6 +6,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> items = new ArrayList<>();
     private final int maxWeight = 100;
+    private int HP = 50;
 
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
@@ -58,8 +59,14 @@ public class Player {
                 weight = items.get(i).getWeight();
             }}
         return weight;
+    }
 
+    public void healHp (int hpReg){
+        HP += hpReg;
+    }
 
+    public void takeDmg (int dmg){
+        HP -= dmg;
     }
 
 }
