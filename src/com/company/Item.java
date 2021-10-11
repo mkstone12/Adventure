@@ -5,6 +5,7 @@ public class Item {
     private String longName;
     private int weight;
 
+
     public Item(String name, String longName, int weight){
         this.name = name;
         this.longName = longName;
@@ -20,6 +21,10 @@ public class Item {
     public int getWeight(){
         return weight;
     }
+
+
+
+
 
 
 

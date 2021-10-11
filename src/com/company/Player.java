@@ -6,6 +6,9 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> items = new ArrayList<>();
     private final int maxWeight = 100;
+    public int playerHealth = 50;
+    private Item_Weapon itemEquiped;
+
 
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;

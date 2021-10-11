@@ -56,7 +56,7 @@ public class Map {
 
         Room4.addNewItem("key","Old Key", 1);
 
-        Room5.addNewItem("rock","Big Rocky Rock", 99);
+        Room5.addNewItem("Rock","Dwayne The Rock Johnson", 99);
 
         Room6.addNewItem("corpse","Rotten Corpse", 75);
 
@@ -66,6 +66,8 @@ public class Map {
 
         Room9.addNewItem("diamond","Diamond", 5);
         Room9.addNewItem("spear","Very Long Spear", 25);
+
+        Room5Underground.addNewItem("test","Test",5);
 
 
 
