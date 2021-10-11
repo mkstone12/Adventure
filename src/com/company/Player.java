@@ -8,7 +8,7 @@ public class Player {
     private final int maxWeight = 100;
     private int HP = 50;
     private boolean itemEquiped = false;
-    private Item_Weapon weaponEquiped;
+    private Item weaponEquiped;
 
 
     public void setCurrentRoom(Room currentRoom){
@@ -30,12 +30,13 @@ public class Player {
     public void equipWeapon(Item weapon){
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(weapon.name)){
-                weaponEquiped = (Item_Weapon) weapon;
+                if(weapon instanceof Item_Weapon){
+                weaponEquiped = weapon;
                 itemEquiped = true;
                 System.out.println("You have equipped "+weaponEquiped.getName()+".");
-            }
-            else {
-                System.out.println("You do not have that item in your inventory");
+            }}
+            else if (i == items.size()-1){
+                System.out.println("You do not have that item in your inventory or this is not a weapon");
             }
         }
     }
@@ -52,9 +53,6 @@ public class Player {
 
     public void dropItem(String name){
         for (int i=0; i < items.size();i++){
-            if(items.get(i) == weaponEquiped){
-                unequipWeapon((Item_Weapon) items.get(i), weaponEquiped);
-            }
             if (items.get(i).getName().equals(name)){
                 currentRoom.addItem(items.get(i));
                 System.out.println("You have dropped the " + items.get(i).getName());
