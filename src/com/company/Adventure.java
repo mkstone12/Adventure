@@ -101,6 +101,14 @@ public class Adventure {
                 isTakeOrDrop = true;
                 goodChoice = true;
             }
+        if (choice.startsWith("use")){
+            String weapon = choice.trim().substring(4);
+            if(itemEquiped == true){
+
+            } else if(itemEquiped == false){
+                System.out.println("You have no weapon equipped...");
+            }
+        }
 
 
 

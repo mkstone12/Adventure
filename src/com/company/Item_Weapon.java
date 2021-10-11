@@ -7,7 +7,7 @@ public class Item_Weapon extends Item {
         super(name, longName, weight);
         this.weaponDamage = weaponDamage;
     }
-
+    private int weaponDamage;
 
     public void setWeaponDamage(int weaponDamage) {
         this.weaponDamage = weaponDamage;
