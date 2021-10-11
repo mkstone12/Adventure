@@ -40,10 +40,10 @@ public class Player {
             }
         }
     }
-    public void unequipWeapon(Item_Weapon weapon, Item_Weapon weaponEquiped){
+    public void unequipWeapon(String weapon){
         for (int i=0; i < items.size();i++){
-            if (items.get(i).getName().equals(weaponEquiped.name)){
-                System.out.println("You have unequipped "+weaponEquiped+".");
+            if (weapon.equals(weaponEquiped.name)){
+                System.out.println("You have unequipped "+weaponEquiped.getName()+".");
                 weaponEquiped = null;
                 itemEquiped = false;
             } else {
@@ -54,10 +54,15 @@ public class Player {
     public void dropItem(String name){
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(name)){
+                String item = items.get(i).getName();
                 currentRoom.addItem(items.get(i));
                 System.out.println("You have dropped the " + items.get(i).getName());
+                if(itemEquiped == true){
+                    if(item.equals(weaponEquiped.getName())){
+                        unequipWeapon(item);
+                    }}
                 items.remove(i);
-    }}}
+            }}}
 
 
     public ArrayList<String> getPlayerItems() {
