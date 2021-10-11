@@ -22,8 +22,8 @@ public class Enemy {
         return enemyName+" attacked you!\nYou are at "+playerHealth+" health";
     }
 
-    public String enemyTakeDamage(int enemyHealth, int playerAttack, String enemyName){
+/*    public String enemyTakeDamage(int enemyHealth, int playerAttack, String enemyName){
 
 
-    }
+    }*/
 }
