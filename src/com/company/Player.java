@@ -7,6 +7,8 @@ public class Player {
     private ArrayList<Item> items = new ArrayList<>();
     private final int maxWeight = 100;
     private int HP = 50;
+    private boolean itemEquiped = false;
+    private Item_Weapon weaponEquiped;
 
 
     public void setCurrentRoom(Room currentRoom){

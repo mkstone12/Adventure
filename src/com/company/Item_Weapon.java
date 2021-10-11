@@ -13,4 +13,8 @@ public class Item_Weapon extends Item {
     public int getWeaponDamage() {
         return weaponDamage;
     }
+    public int usesLeft(){
+
+        }
+    }
 }
