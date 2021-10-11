@@ -70,6 +70,7 @@ public class Map {
         Room5Underground.addNewItem("test","Test",5);
 
 
+        Room1.addFood("cake","Very nice cake", 5, 10);
 
     }
 

@@ -54,7 +54,6 @@ public class Adventure {
         boolean goodChoice = false;
         boolean isTakeOrDrop = false;
 
-        if (choice.length() > 4) {
 
             if (choice.startsWith("take")){
                 String item = choice.trim().substring(5);
@@ -90,7 +89,19 @@ public class Adventure {
 
 
             }
-        }
+
+            if (choice.startsWith("eat")){
+                String food = choice.trim().substring(4);
+                for (int i=0;i < player.getPlayerItems().size();i++){
+                    if(food.equals(player.getPlayerItems().get(i))){
+                       player.regHp(player.getItem(food).getHpReg());
+                    }
+
+            }
+                isTakeOrDrop = true;
+                goodChoice = true;
+            }
+
 
 
         String wrongWay = "You cannot go this way";
@@ -190,6 +201,12 @@ public class Adventure {
                     System.out.println(item + " " +player.getItemWeight(playerItem.get(i)));
                 }
               }
+
+              case "health", "h" ->{
+                  System.out.println(player.getHP());
+              }
+
+
 
 
             default -> System.out.println("This does not seem to be possible. Try something else like looking around by typing look or type help if you need it");

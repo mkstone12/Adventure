@@ -6,8 +6,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> items = new ArrayList<>();
     private final int maxWeight = 100;
-    public int playerHealth = 50;
-    private Item_Weapon itemEquiped;
+    private int HP = 50;
 
 
     public void setCurrentRoom(Room currentRoom){
@@ -61,9 +60,30 @@ public class Player {
                 weight = items.get(i).getWeight();
             }}
         return weight;
+    }
 
+    public void regHp (int hpReg){
+        HP += hpReg;
+    }
 
+    public void takeDmg (int dmg){
+        HP -= dmg;
+    }
+    public int getHP (){
+        return HP;
+    }
+
+    public Item getItem(String itemName){
+        Item item = null;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(itemName)){
+                item = items.get(i);
+            }
+        }
+        return item;
     }
 
 }
+
+
 
