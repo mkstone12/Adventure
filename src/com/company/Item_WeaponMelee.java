@@ -6,6 +6,10 @@ public class Item_WeaponMelee extends Item_Weapon {
         super(name, longName, weight, weaponDamage);
     }
 
+    public int usesLeft(){
+        return 0;
+    }
+
 }
 
 
