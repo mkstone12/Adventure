@@ -8,6 +8,7 @@ public class Player {
     private final int maxWeight = 100;
     private int HP = 50;
 
+
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
     }
@@ -24,6 +25,7 @@ public class Player {
             System.out.println("You cannot carry anymore");
         }
     }
+
 
     public void dropItem(String name){
         for (int i=0; i < items.size();i++){
@@ -61,13 +63,28 @@ public class Player {
         return weight;
     }
 
-    public void healHp (int hpReg){
+    public void regHp (int hpReg){
         HP += hpReg;
     }
 
     public void takeDmg (int dmg){
         HP -= dmg;
     }
+    public int getHP (){
+        return HP;
+    }
+
+    public Item getItem(String itemName){
+        Item item = null;
+        for(int i = 0; i < items.size(); i++){
+            if(items.get(i).getName().equals(itemName)){
+                item = items.get(i);
+            }
+        }
+        return item;
+    }
 
 }
+
+
 

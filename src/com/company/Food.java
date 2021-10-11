@@ -8,5 +8,9 @@ public class Food extends Item{
         this.hpReg = hpReg;
     }
 
+    public int getHpReg(){
+        return hpReg;
+    }
+
 
 }

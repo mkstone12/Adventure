@@ -78,6 +78,11 @@ public class Room {
         items.add(item);
     }
 
+    public void addFood(String name, String longName, int weight, int hpReg ){
+        Food food = new Food(name,longName,weight,hpReg);
+        items.add(food);
+    }
+
 
     public void addItem(Item item){
         items.add(item);
@@ -92,8 +97,9 @@ public class Room {
 
     public ArrayList<String> getAllItems() {
         ArrayList<String> stringItems = new ArrayList<>();
+
         for (int i = 0; i < items.size(); i++){
-            stringItems.add(items.get(i).getName()) ;
+            stringItems.add(items.get(i).getName());
         }
 
         return stringItems;
@@ -102,7 +108,7 @@ public class Room {
     public ArrayList<String> getAllItemLong() {
         ArrayList<String> stringItems = new ArrayList<>();
         for (int i = 0; i < items.size(); i++){
-            stringItems.add(items.get(i).getLongName()) ;
+            stringItems.add(items.get(i).getLongName()) ;;
         }
 
         return stringItems;
@@ -118,9 +124,9 @@ public class Room {
             if(items.get(i).getName().equals(itemName)){
             item = items.get(i);
             }
-
         }
         return item;
     }
+
 }
 

@@ -68,6 +68,7 @@ public class Map {
         Room9.addNewItem("spear","Very Long Spear", 25);
 
 
+        Room1.addFood("cake","Very nice cake", 5, 10);
 
     }
 

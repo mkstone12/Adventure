@@ -21,6 +21,9 @@ public class Item {
         return weight;
     }
 
+    public int getHpReg() {
+        return 0;
+    }
 
 
 }
