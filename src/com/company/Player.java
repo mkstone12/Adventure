@@ -110,6 +110,9 @@ public class Player {
     public String getWeaponEquiped(){
         return weaponEquiped.getName();
     }
+    public boolean isItemEquiped(){
+        return itemEquiped;
+    }
 
 }
 

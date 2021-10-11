@@ -239,8 +239,9 @@ public class Adventure {
                     item = item.substring(0,1).toUpperCase() + item.substring(1);
                     System.out.println(item + " " +player.getItemWeight(playerItem.get(i)));
                 }
+                if(player.isItemEquiped()== true){
                 System.out.println("You have "+ player.getWeaponEquiped()+ " equipped");
-              }
+              }}
 
               case "health", "h" ->{
                   System.out.println(player.getHP());
