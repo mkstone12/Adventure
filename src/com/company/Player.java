@@ -11,20 +11,19 @@ public class Player {
     private Item_Weapon weaponEquiped;
 
 
-    public void setCurrentRoom(Room currentRoom) {
+    public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
     }
-
-    public Room getCurrentRoom() {
+    public Room getCurrentRoom(){
         return currentRoom;
     }
 
-    public void takeItem(Item item) {
-        if (getPlayerWeight() + item.getWeight() < maxWeight) {
+    public void takeItem(Item item){
+        if(getPlayerWeight()+ item.getWeight() < maxWeight){
             items.add(item);
             currentRoom.removeItem(item.getName());
-            System.out.println("You have taken the " + item.getName());
-        } else {
+            System.out.println("You have taken the " + item.getName());}
+        else{
             System.out.println("You cannot carry anymore");
         }
     }
