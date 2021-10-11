@@ -30,12 +30,13 @@ public class Player {
     public void equipWeapon(Item weapon){
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(weapon.name)){
+                if(weapon instanceof Item_Weapon){
                 weaponEquiped = weapon;
                 itemEquiped = true;
                 System.out.println("You have equipped "+weaponEquiped.getName()+".");
-            }
-            else {
-                System.out.println("You do not have that item in your inventory");
+            }}
+            else if (i == items.size()-1){
+                System.out.println("You do not have that item in your inventory or this is not a weapon");
             }
         }
     }
@@ -106,6 +107,8 @@ public class Player {
         }
         return item;
     }
+
+
 
     public String getWeaponEquiped(){
         return weaponEquiped.getName();
