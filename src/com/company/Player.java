@@ -19,7 +19,7 @@ public class Player {
     }
 
     public void takeItem(Item item){
-        if(getPlayerWeight()+ item.getWeight() < maxWeight){
+        if(getPlayerWeight() + item.getWeight() < maxWeight){
             items.add(item);
             currentRoom.removeItem(item.getName());
             System.out.println("You have taken the " + item.getName());}
