@@ -8,7 +8,7 @@ public class Player {
     private final int maxWeight = 100;
     private int HP = 50;
     private boolean itemEquiped = false;
-    private Item_Weapon weaponEquiped;
+    private Item weaponEquiped;
 
 
     public void setCurrentRoom(Room currentRoom){
@@ -27,12 +27,12 @@ public class Player {
             System.out.println("You cannot carry anymore");
         }
     }
-    public void equipWeapon(Item_Weapon weapon){
+    public void equipWeapon(Item weapon){
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(weapon.name)){
                 weaponEquiped = weapon;
                 itemEquiped = true;
-                System.out.println("You have equipped "+weaponEquiped+".");
+                System.out.println("You have equipped "+weaponEquiped.getName()+".");
             }
             else {
                 System.out.println("You do not have that item in your inventory");
@@ -105,6 +105,10 @@ public class Player {
             }
         }
         return item;
+    }
+
+    public String getWeaponEquiped(){
+        return weaponEquiped.getName();
     }
 
 }

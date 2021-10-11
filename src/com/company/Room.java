@@ -83,6 +83,16 @@ public class Room {
         items.add(food);
     }
 
+    public void addWeaponMelee(String name, String longName, int weight, int dmg){
+        Item_WeaponMelee weapon = new Item_WeaponMelee(name,longName,weight,dmg);
+        items.add(weapon);
+    }
+    public void addRangedWeapon(String name, String longName, int weight, int dmg, int uses){
+        Item_Weapon_Ranged weapon = new Item_Weapon_Ranged(name,longName,weight,dmg, uses);
+        items.add(weapon);
+    }
+
+
 
     public void addItem(Item item){
         items.add(item);

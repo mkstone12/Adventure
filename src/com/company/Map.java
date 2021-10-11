@@ -46,7 +46,9 @@ public class Map {
 
 
         Room1.addNewItem("lamp", "Shiny Lamp", 5);
-        Room1.addNewItem("sword", "Giant two handed sword", 40);
+
+        Room1.addWeaponMelee("sword", "Giant two handed sword", 40,10);
+
         Room1.addNewItem("carpet", "Purple Carpet", 30);
 
         Room2.addNewItem("axe", "bloody axe", 13);
@@ -71,6 +73,7 @@ public class Map {
 
 
         Room1.addFood("cake","Very nice cake", 5, 10);
+
 
     }
 

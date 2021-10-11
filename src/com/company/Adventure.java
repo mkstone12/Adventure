@@ -78,7 +78,7 @@ public class Adventure {
                     if (item.equals(player.getPlayerItems().get(i))) {
                         player.dropItem((item));
                         break;
-                    } else if (i == player.getPlayerItems().size() -1) {
+                    } else if (i == player.getPlayerItems().size() - 1) {
                         System.out.println("Items does not exist");
                     }
                 }
@@ -87,9 +87,7 @@ public class Adventure {
                 goodChoice = true;
 
 
-            }
-
-           else  if (choice.startsWith("eat")) {
+            } else if (choice.startsWith("eat")) {
                 String food = choice.trim().substring(4);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
                     if (food.equals(player.getPlayerItems().get(i))) {
@@ -106,7 +104,7 @@ public class Adventure {
                     }
 
                 }
-                if(player.getPlayerItems().size() == 0){
+                if (player.getPlayerItems().size() == 0) {
                     System.out.println("Item does not exist");
                 }
                 isTakeOrDrop = true;
@@ -121,6 +119,27 @@ public class Adventure {
                 System.out.println("You have no weapon equipped...");
             }
         }*/
+
+
+            else if (choice.startsWith("equip")) {
+                String weapon = choice.trim().substring(6);
+                for (int i = 0; i < player.getPlayerItems().size(); i++) {
+                    if (weapon.equals(player.getPlayerItems().get(i))) {
+                        player.equipWeapon(player.getItem(weapon));
+                        break;
+                    } else if (i == player.getPlayerItems().size() - 1) {
+                        System.out.println("Items does not exist");
+                    }
+                }
+
+                isTakeOrDrop = true;
+                goodChoice = true;
+                if (player.getPlayerItems().size() == 0) {
+                    System.out.println("Item does not exist");
+                }
+
+
+            }
         }
 
 
@@ -220,6 +239,7 @@ public class Adventure {
                     item = item.substring(0,1).toUpperCase() + item.substring(1);
                     System.out.println(item + " " +player.getItemWeight(playerItem.get(i)));
                 }
+                System.out.println("You have "+ player.getWeaponEquiped()+ " equipped");
               }
 
               case "health", "h" ->{
