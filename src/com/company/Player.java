@@ -8,7 +8,7 @@ public class Player {
     private final int maxWeight = 100;
     private int HP = 50;
     private boolean itemEquiped = false;
-    private Item weaponEquiped;
+    private Item_Weapon weaponEquiped;
 
 
     public void setCurrentRoom(Room currentRoom){
@@ -30,7 +30,7 @@ public class Player {
     public void equipWeapon(Item weapon){
         for (int i=0; i < items.size();i++){
             if (items.get(i).getName().equals(weapon.name)){
-                weaponEquiped = weapon;
+                weaponEquiped = (Item_Weapon) weapon;
                 itemEquiped = true;
                 System.out.println("You have equipped "+weaponEquiped.getName()+".");
             }
@@ -52,6 +52,9 @@ public class Player {
 
     public void dropItem(String name){
         for (int i=0; i < items.size();i++){
+            if(items.get(i) == weaponEquiped){
+                unequipWeapon((Item_Weapon) items.get(i), weaponEquiped);
+            }
             if (items.get(i).getName().equals(name)){
                 currentRoom.addItem(items.get(i));
                 System.out.println("You have dropped the " + items.get(i).getName());
