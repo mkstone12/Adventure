@@ -52,7 +52,7 @@ public class Adventure {
     public static boolean Command(Map map,  String choice, Player player){
         boolean goodChoice = false;
         boolean isTakeOrDrop = false;
-        if (choice.length() > 4) {
+        if (choice.length() > 8) {
 
 
             if (choice.startsWith("take")) {
