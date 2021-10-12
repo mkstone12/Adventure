@@ -13,6 +13,7 @@ public class Room {
     private String name;
     private String roomDesc;
     private ArrayList<Item> items = new ArrayList<>();
+    private Enemy enemy;
 
     public Room(String name){
         this.name = name;
@@ -94,6 +95,7 @@ public class Room {
 
     public void createEnemy(String name, int HP, Item_Weapon weapon){
         Enemy enemy = new Enemy(name, HP, weapon);
+        this.enemy = enemy;
     }
 
 
@@ -141,8 +143,8 @@ public class Room {
         return item;
     }
 
-    public void getEnemy(String name){
-
+    public Enemy getEnemy(){
+        return enemy;
     }
 
 

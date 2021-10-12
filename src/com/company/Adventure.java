@@ -124,11 +124,11 @@ public class Adventure {
             else if (choice.startsWith("equip")) {
                 String weapon = choice.trim().substring(6);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
-                    if (weapon.equals(player.getPlayerItems().get(i).getName())) {
+                    if (weapon.equals(player.getPlayerItems().get(i).getName()) && player.isItemEquiped() == false) {
                         player.equipWeapon(player.getItem(weapon));
                         break;
                     } else if (i == player.getPlayerItems().size() - 1) {
-                        System.out.println("Items does not existtttt");
+                        System.out.println("Items does not exist");
                     }
                 }
 
@@ -141,10 +141,7 @@ public class Adventure {
 
             }
             else if(choice.startsWith("attack")){
-                String enemy = choice.substring(7);
-
-                //attack(player, enemy);
-
+                attack(player, map.currentRoom.getEnemy());
             }
         }
 
@@ -287,7 +284,7 @@ public class Adventure {
 
     public static void attack(Player player, Enemy enemy) {
         enemy.takeDmg(player.getWeaponEquiped().getWeaponDamage());
-        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " to " + enemy.getEnemyName());
+        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + enemy.getEnemyName());
         System.out.println("The enemy now has " + enemy.getEnemyHealth());
         player.takeDmg(enemy.getWeapon().getWeaponDamage());
         System.out.println(enemy.getEnemyName() + " deals " + enemy.getWeapon().getWeaponDamage() + " to you");

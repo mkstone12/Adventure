@@ -71,12 +71,12 @@ public class Map {
 
         Room5Underground.addNewItem("test","Test",5);
 
-
+        Room1.addWeaponMelee("spear","Very Long Spear", 25,15);
         Room1.addFood("cake","Very nice cake", 5, 10);
 
         Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("Brittle sword", " Brittle sword", 5, 5);
 
-        Room1.createEnemy("Skeleton",10,skeletonWeapon);
+        Room1.createEnemy("Skeleton",20,skeletonWeapon);
 
 
     }
