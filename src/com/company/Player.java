@@ -118,7 +118,7 @@ public class Player {
     }
     public boolean isItemEquiped(){
         return itemEquiped;
-    }
+    }}
 /*    public int useWeapon(int weaponDamage, int enemyHealth){
         if(itemEquiped == true){
             if(combat == true){
@@ -140,5 +140,5 @@ public class Player {
     }
 }
 
-
+/*/
 
