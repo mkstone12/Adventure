@@ -307,6 +307,14 @@ public class Adventure {
         player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
         System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
         System.out.println("You now have " + player.getHP() +" HP left");
+
+        if(player.getHP()==0){
+            System.out.println("GAME OVER! YOU DIED");
+        }
+        if(map.currentRoom.getEnemy().getEnemyHealth() <=0){
+            System.out.println("You have killed the " + map.currentRoom.getEnemy().getEnemyName());
+            map.currentRoom.setEnemy(null);
+        }
     }
         else{
             System.out.println("you hit the air");

@@ -98,6 +98,10 @@ public class Room {
         this.enemy = enemy;
     }
 
+    public void setEnemy(Enemy enemy){
+        this.enemy = enemy;
+    }
+
 
     public void addItem(Item item){
         items.add(item);
