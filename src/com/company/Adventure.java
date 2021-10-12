@@ -300,21 +300,21 @@ public class Adventure {
 
     public static void attack(Player player, Map map) {
 
-        if(map.currentRoom.getEnemy()!=null){
-        map.currentRoom.getEnemy().takeDmg(player.getWeaponEquiped().getWeaponDamage());
-        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + map.currentRoom.getEnemy().getEnemyName());
-        System.out.println("The enemy now has " + map.currentRoom.getEnemy().getEnemyHealth());
-        player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
-        System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
-        System.out.println("You now have " + player.getHP() +" HP left");
-
-        if(player.getHP()==0){
-            System.out.println("GAME OVER! YOU DIED");
-        }
-        if(map.currentRoom.getEnemy().getEnemyHealth() <=0){
-            System.out.println("You have killed the " + map.currentRoom.getEnemy().getEnemyName());
-            map.currentRoom.setEnemy(null);
-        }
+        if(map.currentRoom.getEnemy()!=null) {
+            map.currentRoom.getEnemy().takeDmg(player.getWeaponEquiped().getWeaponDamage());
+            System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + map.currentRoom.getEnemy().getEnemyName());
+            if(map.currentRoom.getEnemy().getEnemyHealth() > 0){
+                System.out.println("The enemy now has " + map.currentRoom.getEnemy().getEnemyHealth() +" HP left");
+            }else{
+                System.out.println("he enemy now has 0 HP, and is dead!");}
+            player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
+            System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
+            if(player.getHP() > 0){
+                System.out.println("You now have " + player.getHP() + " HP left");
+            }else{
+                System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
+                keepPlaying = false;
+            }
     }
         else{
             System.out.println("you hit the air");
