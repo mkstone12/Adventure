@@ -75,11 +75,12 @@ public class Adventure {
             else if (choice.startsWith("drop")) {
                 String item = choice.trim().substring(5);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
-                    if (item.equals(player.getPlayerItems().get(i))) {
+
+                    if (item.equals(player.getPlayerItems().get(i).getName())) {
                         player.dropItem((item));
                         break;
-                    } else if (i == player.getPlayerItems().size() - 1) {
-                        System.out.println("Items does not exist");
+                    } else if (i == player.getPlayerItems().size() -1 ) {
+                        System.out.println("You do not have this item in your inventory");
                     }
                 }
 
@@ -111,14 +112,6 @@ public class Adventure {
                 goodChoice = true;
 
             }
-  /*      if (choice.startsWith("use")){
-            String weapon = choice.trim().substring(4);
-            if(itemEquiped == true){
-
-            } else if(itemEquiped == false){
-                System.out.println("You have no weapon equipped...");
-            }
-        }*/
 
 
             else if (choice.startsWith("equip")) {
@@ -140,6 +133,19 @@ public class Adventure {
 
 
             }
+
+            else if(choice.startsWith("unequip")){
+                String weapon = choice.trim().substring(8);
+                if(player.isItemEquiped() == true){
+                    player.unequipWeapon(weapon);
+                }
+                else{
+                    System.out.println("no weapon equipped");
+                }
+
+            }
+
+
             else if(choice.startsWith("attack")){
                 if(player.isItemEquiped() == true ||  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
                 attack(player, map);
@@ -310,7 +316,13 @@ public class Adventure {
                 System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
             }
             else{
-                System.out.println("The enemy is dead!");}
+                System.out.println("The enemy is dead!");
+                if(map.currentRoom.getEnemy().getWeapon() instanceof Item_Weapon_Ranged){
+                    map.currentRoom.addWeapon(map.currentRoom.getEnemy().getWeapon());
+                }
+
+                map.currentRoom.setEnemy(null);
+
 
            if(player.getHP() > 0){
                 System.out.println("You now have " + player.getHP() + " HP left");
@@ -319,7 +331,7 @@ public class Adventure {
                System.out.println("GAME OVER!!!!!");
                 keepPlaying = false;
             }
-    }
+    } }
         else{
             System.out.println("you hit the air");
             if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged){
