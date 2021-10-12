@@ -285,10 +285,18 @@ public class Adventure {
     public static void attack(Player player, Enemy enemy) {
         enemy.takeDmg(player.getWeaponEquiped().getWeaponDamage());
         System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + enemy.getEnemyName());
-        System.out.println("The enemy now has " + enemy.getEnemyHealth());
+        if(enemy.getEnemyHealth() > 0){
+            System.out.println("The enemy now has " + enemy.getEnemyHealth() +" HP left");
+        }else{
+            System.out.println("he enemy now has 0 HP, and is dead!");}
         player.takeDmg(enemy.getWeapon().getWeaponDamage());
         System.out.println(enemy.getEnemyName() + " deals " + enemy.getWeapon().getWeaponDamage() + " to you");
-        System.out.println("You now have " + player.getHP() +" HP left");
+        if(player.getHP() > 0){
+            System.out.println("You now have " + player.getHP() + " HP left");
+        }else{
+            System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
+            keepPlaying = false;
+        }
 
     }
 }
