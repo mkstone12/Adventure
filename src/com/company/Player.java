@@ -118,8 +118,8 @@ public class Player {
     }
     public boolean isItemEquiped(){
         return itemEquiped;
-    }}
-   /* public int useWeapon(int weaponDamage, int enemyHealth){
+    }
+/*    public int useWeapon(int weaponDamage, int enemyHealth){
         if(itemEquiped == true){
             if(combat == true){
                 shoot or sumfin
@@ -142,4 +142,3 @@ public class Player {
 
 
 
-/*/
