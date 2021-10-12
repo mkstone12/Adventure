@@ -140,6 +140,9 @@ public class Adventure {
 
 
             }
+            else if(choice.startsWith("attack")){
+
+            }
         }
 
 
@@ -232,15 +235,22 @@ public class Adventure {
             }
             case "inventory", "i" ->{
                 System.out.println("You are carrying " +player.getPlayerWeight() + " out of 100");
-                ArrayList<String> playerItem =player.getPlayerItems();
+                ArrayList<Item> playerItem =player.getPlayerItems();
                 String item;
                 for (int i = 0; i< playerItem.size(); i++){
-                    item = playerItem.get(i);
+                    item = playerItem.get(i).getName();
                     item = item.substring(0,1).toUpperCase() + item.substring(1);
-                    System.out.println(item + " " +player.getItemWeight(playerItem.get(i)));
+                    if (playerItem.get(i) instanceof Item_Weapon){
+                        System.out.print(item + " " +player.getItemWeight(playerItem.get(i).getName()));
+                        System.out.println("- Deals " + playerItem.get(i).getWeaponDamage() + " damage");
+                    }
+                    else{
+                        System.out.println(item + " " +player.getItemWeight(playerItem.get(i).getName()));
+                    }
                 }
                 if(player.isItemEquiped()== true){
-                System.out.println("You have "+ player.getWeaponEquiped()+ " equipped");
+                System.out.println("You have "+ player.getWeaponEquiped().getName()+ " equipped");
+                    System.out.println("It deals " + player.getWeaponEquiped().getWeaponDamage() + " damage");
               }}
 
               case "health", "h" ->{
@@ -272,7 +282,17 @@ public class Adventure {
     }}
 
 
+    public static void attack(Player player, Enemy enemy) {
+        enemy.takeDmg(player.getWeaponEquiped().getWeaponDamage());
+        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " to " + enemy.getEnemyName());
+        System.out.println("The enemy now has " + enemy.getEnemyHealth());
+        player.takeDmg(enemy.getWeapon().getWeaponDamage());
+        System.out.println(enemy.getEnemyName() + " deals " + enemy.getWeapon().getWeaponDamage() + " to you");
+        System.out.println("You now have " + player.getHP() +" HP left");
 
     }
+}
+
+
 
 

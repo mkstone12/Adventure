@@ -92,6 +92,9 @@ public class Room {
         items.add(weapon);
     }
 
+    public void createEnemy(String name, int HP, Item_Weapon weapon){
+        Enemy enemy = new Enemy(name, HP, weapon);
+    }
 
 
     public void addItem(Item item){
@@ -137,6 +140,7 @@ public class Room {
         }
         return item;
     }
+
 
 }
 

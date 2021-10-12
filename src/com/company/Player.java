@@ -65,10 +65,10 @@ public class Player {
             }}}
 
 
-    public ArrayList<String> getPlayerItems() {
-        ArrayList<String> stringItems = new ArrayList<>();
+    public ArrayList<Item> getPlayerItems() {
+        ArrayList<Item> stringItems = new ArrayList<>();
         for (int i = 0; i < items.size(); i++){
-            stringItems.add(items.get(i).getName()) ;
+            stringItems.add(items.get(i)) ;
         }
 
         return stringItems;
@@ -113,8 +113,8 @@ public class Player {
         return item;
     }
 
-    public String getWeaponEquiped(){
-        return weaponEquiped.getName();
+    public Item getWeaponEquiped(){
+        return weaponEquiped;
     }
     public boolean isItemEquiped(){
         return itemEquiped;
