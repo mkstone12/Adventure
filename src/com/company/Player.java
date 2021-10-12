@@ -46,6 +46,7 @@ public class Player {
                 System.out.println("You have unequipped "+weaponEquiped.getName()+".");
                 weaponEquiped = null;
                 itemEquiped = false;
+                break;
             } else {
                 System.out.println("You do not have that item equipped");}
     }}
@@ -57,6 +58,7 @@ public class Player {
                 String item = items.get(i).getName();
                 currentRoom.addItem(items.get(i));
                 System.out.println("You have dropped the " + items.get(i).getName());
+
                 if(itemEquiped == true){
                     if(item.equals(weaponEquiped.getName())){
                         unequipWeapon(item);
