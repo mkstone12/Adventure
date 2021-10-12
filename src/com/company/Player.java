@@ -119,7 +119,25 @@ public class Player {
     public boolean isItemEquiped(){
         return itemEquiped;
     }
+    public int useWeapon(int weaponDamage, int enemyHealth){
+        if(itemEquiped == true){
+            if(combat == true){
+                shoot or sumfin
+            }
+            else {
+                if(weaponEquiped instanceof Item_Weapon_Ranged ){
 
+                    System.out.println("There is no enemy, so you shoot at some air...");
+
+                }else{
+                    System.out.println("There is no enemy, so you wack at air...");
+                }
+            }
+        }
+        else{
+            System.out.println("You have no item equipped...");
+        }
+    }
 }
 
 
