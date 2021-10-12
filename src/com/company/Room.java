@@ -141,6 +141,10 @@ public class Room {
         return item;
     }
 
+    public void getEnemy(String name){
+
+    }
+
 
 }
 

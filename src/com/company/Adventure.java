@@ -124,11 +124,11 @@ public class Adventure {
             else if (choice.startsWith("equip")) {
                 String weapon = choice.trim().substring(6);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
-                    if (weapon.equals(player.getPlayerItems().get(i))) {
+                    if (weapon.equals(player.getPlayerItems().get(i).getName())) {
                         player.equipWeapon(player.getItem(weapon));
                         break;
                     } else if (i == player.getPlayerItems().size() - 1) {
-                        System.out.println("Items does not exist");
+                        System.out.println("Items does not existtttt");
                     }
                 }
 
@@ -141,6 +141,9 @@ public class Adventure {
 
             }
             else if(choice.startsWith("attack")){
+                String enemy = choice.substring(7);
+
+                //attack(player, enemy);
 
             }
         }

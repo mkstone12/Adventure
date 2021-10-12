@@ -75,6 +75,7 @@ public class Map {
         Room1.addFood("cake","Very nice cake", 5, 10);
 
         Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("Brittle sword", " Brittle sword", 5, 5);
+
         Room1.createEnemy("Skeleton",10,skeletonWeapon);
 
 
