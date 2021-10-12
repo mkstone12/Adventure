@@ -147,6 +147,8 @@ public class Adventure {
             else{
                     System.out.println("you have no weapon equipped or no more ammo");}
             }
+            isTakeOrDrop = true;
+            goodChoice = true;
         }
 
 
