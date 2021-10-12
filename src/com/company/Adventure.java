@@ -303,16 +303,20 @@ public class Adventure {
         if(map.currentRoom.getEnemy()!=null) {
             map.currentRoom.getEnemy().takeDmg(player.getWeaponEquiped().getWeaponDamage());
             System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + map.currentRoom.getEnemy().getEnemyName());
+
             if(map.currentRoom.getEnemy().getEnemyHealth() > 0){
                 System.out.println("The enemy now has " + map.currentRoom.getEnemy().getEnemyHealth() +" HP left");
-            }else{
-                System.out.println("he enemy now has 0 HP, and is dead!");}
-            player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
-            System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
-            if(player.getHP() > 0){
+                player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
+                System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
+            }
+            else{
+                System.out.println("The enemy is dead!");}
+
+           if(player.getHP() > 0){
                 System.out.println("You now have " + player.getHP() + " HP left");
             }else{
                 System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
+               System.out.println("GAME OVER!!!!!");
                 keepPlaying = false;
             }
     }
