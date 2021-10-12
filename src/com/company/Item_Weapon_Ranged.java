@@ -11,6 +11,9 @@ public class Item_Weapon_Ranged extends Item_Weapon {
     public int usesLeft(){
         return uses;
     }
+    public void useAmmo(){
+       uses = uses-1;
+    }
 
 
 

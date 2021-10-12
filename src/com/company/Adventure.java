@@ -141,7 +141,11 @@ public class Adventure {
 
             }
             else if(choice.startsWith("attack")){
-                attack(player, map.currentRoom.getEnemy());
+                if(player.isItemEquiped() == true ||  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
+                attack(player, map);
+            }
+            else{
+                    System.out.println("you have no weapon equipped or no more ammo");}
             }
         }
 
@@ -278,20 +282,39 @@ public class Adventure {
         for (int i = 0; i< map.currentRoom.getAllItems().size(); i++){
 
             System.out.println(map.currentRoom.getAllItemLong().get(i) + " " +map.currentRoom.getItemArrayList().get(i).getWeight());
+
+
         }
-    }}
-
-
-    public static void attack(Player player, Enemy enemy) {
-        enemy.takeDmg(player.getWeaponEquiped().getWeaponDamage());
-        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + enemy.getEnemyName());
-        System.out.println("The enemy now has " + enemy.getEnemyHealth());
-        player.takeDmg(enemy.getWeapon().getWeaponDamage());
-        System.out.println(enemy.getEnemyName() + " deals " + enemy.getWeapon().getWeaponDamage() + " to you");
-        System.out.println("You now have " + player.getHP() +" HP left");
-
+     }
+        if (map.currentRoom.getEnemy() !=null){
+            System.out.println("There is an enemy in the room");
+            System.out.println(map.currentRoom.getEnemy().getEnemyName());
+        }
+        else{
+            System.out.println("There is no enemy in the room");
+        }
     }
-}
+
+
+    public static void attack(Player player, Map map) {
+
+        if(map.currentRoom.getEnemy()!=null){
+        map.currentRoom.getEnemy().takeDmg(player.getWeaponEquiped().getWeaponDamage());
+        System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + map.currentRoom.getEnemy().getEnemyName());
+        System.out.println("The enemy now has " + map.currentRoom.getEnemy().getEnemyHealth());
+        player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
+        System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
+        System.out.println("You now have " + player.getHP() +" HP left");
+    }
+        else{
+            System.out.println("you hit the air");
+            if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged){
+                ((Item_Weapon_Ranged) player.getWeaponEquiped()).useAmmo();
+                System.out.println(  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft());
+            }
+        }
+
+}}
 
 
 
