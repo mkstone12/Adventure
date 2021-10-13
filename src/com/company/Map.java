@@ -62,7 +62,7 @@ public class Map {
 
         Room6.addNewItem("corpse","Rotten Corpse", 75);
 
-        Room7.addRangedWeapon("eel","Slimey Eel", 14, 500, 1);
+        Room7.addRangedWeapon("eel","Slimey Eel", 14, 50, 1);
 
         Room8.addNewItem("umbrella","Red Umbrella", 4);
 
