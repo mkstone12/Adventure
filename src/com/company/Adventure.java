@@ -362,7 +362,7 @@ public class Adventure {
 
                 map.currentRoom.setEnemy(null);
             }
-            if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged) {
+            if(((Item_Weapon) player.getWeaponEquiped()).usesLeft() > 0) {
                 ((Item_Weapon_Ranged) player.getWeaponEquiped()).useAmmo();
                 System.out.println("You have " + ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() + " ammo left");
             }
