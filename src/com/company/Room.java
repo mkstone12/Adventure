@@ -94,6 +94,10 @@ public class Room {
         items.add(weapon);
     }
 
+    public void addWeapon(Item_Weapon weapon){
+        items.add(weapon);
+    }
+
     public void createEnemy(String name, int HP, Item_Weapon weapon){
         Enemy enemy = new Enemy(name, HP, weapon);
         this.enemy = enemy;
