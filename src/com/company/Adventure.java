@@ -56,7 +56,7 @@ public class Adventure {
 
 
             if (choice.startsWith("take ")) {
-                String item = choice.trim().substring(5);
+                String item = choice.substring(5);
                 for (int i = 0; i < map.currentRoom.getAllItems().size(); i++) {
                     if (item.equals(map.currentRoom.getAllItems().get(i))) {
                         player.takeItem(map.currentRoom.getItem(item));
@@ -352,13 +352,13 @@ public class Adventure {
                 player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
                 System.out.println(map.currentRoom.getEnemy().getEnemyName() + " deals " + map.currentRoom.getEnemy().getWeapon().getWeaponDamage() + " to you");
             }
-            else{
+            else {
                 System.out.println("The enemy is dead!");
                 map.currentRoom.addWeapon(map.currentRoom.getEnemy().getWeapon());
 
 
                 map.currentRoom.setEnemy(null);
-
+            }
 
            if(player.getHP() > 0){
                 System.out.println("You now have " + player.getHP() + " HP left");
@@ -366,7 +366,7 @@ public class Adventure {
                 System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
                 keepPlaying = false;
             }
-    } }
+     }
         else{
             System.out.println("you hit the air");
             if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged){
