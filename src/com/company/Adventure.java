@@ -155,10 +155,9 @@ public class Adventure {
 
             }
 
-            else if(choice.startsWith("unequip ")){
-                String weapon = choice.trim().substring(8);
+            else if(choice.startsWith("unequip")){
                 if(player.isItemEquiped() == true){
-                    player.unequipWeapon(weapon);
+                    player.unequipWeapon(player.getWeaponEquiped().getName());
                     isTakeOrDrop = true;
                     goodChoice = true;
 
