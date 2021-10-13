@@ -7,7 +7,7 @@ public class Item_WeaponMelee extends Item_Weapon {
     }
 
     public int usesLeft(){
-        return 0;
+        return -1;
     }
 
 }
