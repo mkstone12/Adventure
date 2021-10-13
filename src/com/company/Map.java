@@ -54,7 +54,7 @@ public class Map {
         Room2.addWeaponMelee("axe", "bloody axe", 13,10);
         Room2.addFood("bread", "moldy bread", 1,-20);
 
-        Room3.addNewItem("log","Giant Log", 99);
+        Room3.addWeaponMelee("log","Giant Log", 99,100);
 
         Room4.addNewItem("key","Old Key", 1);
 

@@ -360,6 +360,7 @@ public class Adventure {
                 map.currentRoom.setEnemy(null);
             }
 
+
            if(player.getHP() > 0){
                 System.out.println("You now have " + player.getHP() + " HP left");
             }else{
