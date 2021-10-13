@@ -57,7 +57,6 @@ public class Adventure {
 
             if (choice.startsWith("take ")) {
                 String item = choice.trim().substring(5);
-                System.out.println(choice);
                 for (int i = 0; i < map.currentRoom.getAllItems().size(); i++) {
                     if (item.equals(map.currentRoom.getAllItems().get(i))) {
                         player.takeItem(map.currentRoom.getItem(item));
