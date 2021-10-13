@@ -291,7 +291,7 @@ public class Adventure {
                     item = item.substring(0,1).toUpperCase() + item.substring(1);
                     if (playerItem.get(i) instanceof Item_Weapon){
                         System.out.print(item + " " +player.getItemWeight(playerItem.get(i).getName()));
-                        System.out.println("- Deals " + playerItem.get(i).getWeaponDamage() + " damage");
+                        System.out.println("  -  Deals " + playerItem.get(i).getWeaponDamage() + " damage");
                     }
                     else{
                         System.out.println(item + " " +player.getItemWeight(playerItem.get(i).getName()));
