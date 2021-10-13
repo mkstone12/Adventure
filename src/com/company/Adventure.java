@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,15 +32,26 @@ public class Adventure {
 
             //loop for at checke om input er godt. Beder om nyt hvis det ikke er.
             boolean goodChoice = false;
-            while(!goodChoice){
+            while(!goodChoice) {
                 choice = scanner.nextLine().trim().toLowerCase();
-                    goodChoice = Command(map, choice, player);
+                goodChoice = Command(map, choice, player);
 
-            for (int i = 0; i < map.Room5.getAllItems().size();i++){
-                if (map.Room5.getAllItems().get(i).equals("diamond")){
-                    map.dungMap();
-                }}}
+                for (int i = 0; i < map.Room5.getAllItems().size(); i++) {
+                    if (map.Room5.getAllItems().get(i).equals("diamond")) {
+                        map.DiamondRoom();
+                    }
+                    for (int j = 0; j < map.Room4.getAllItems().size(); j++) {
+                        if (map.Room4.getAllItems().get(i).equals("key")) {
+                            map.HouseRoom();
+                        }
+                    }
+                }
+                if (player.getHP() < 0) {
+                    System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
+                    keepPlaying = false;
+                }
 
+            }
     }}
 
 
@@ -358,6 +368,10 @@ public class Adventure {
 
 
                 map.currentRoom.setEnemy(null);
+            }
+            if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged) {
+                ((Item_Weapon_Ranged) player.getWeaponEquiped()).useAmmo();
+                System.out.println("You have " + ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() + " ammo left");
             }
 
 
