@@ -296,6 +296,9 @@ public class Adventure {
                     if (playerItem.get(i) instanceof Item_Weapon){
                         System.out.print(item + " " +player.getItemWeight(playerItem.get(i).getName()));
                         System.out.println("  -  Deals " + playerItem.get(i).getWeaponDamage() + " damage");
+                        if(((Item_Weapon)  playerItem.get(i)).usesLeft() != -1 ){
+                            System.out.println("It has " +  ((Item_Weapon) playerItem.get(i)).usesLeft() + " ammo");
+                        }
                     }
                     else{
                         System.out.println(item + " " +player.getItemWeight(playerItem.get(i).getName()));
