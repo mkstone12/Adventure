@@ -4,7 +4,7 @@ public class Item {
     protected String name;
     protected String longName;
     protected int weight;
-    protected int weaponDamage;
+
 
     public Item(String name, String longName, int weight){
         this.name = name;
