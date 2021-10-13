@@ -309,7 +309,6 @@ public class Adventure {
         if(map.currentRoom.getEnemy()!=null) {
             map.currentRoom.getEnemy().takeDmg(player.getWeaponEquiped().getWeaponDamage());
             System.out.println("You deal " + player.getWeaponEquiped().getWeaponDamage() + " damage to " + map.currentRoom.getEnemy().getEnemyName());
-
             if(map.currentRoom.getEnemy().getEnemyHealth() > 0){
                 System.out.println("The enemy now has " + map.currentRoom.getEnemy().getEnemyHealth() +" HP left");
                 player.takeDmg(map.currentRoom.getEnemy().getWeapon().getWeaponDamage());
@@ -328,7 +327,6 @@ public class Adventure {
                 System.out.println("You now have " + player.getHP() + " HP left");
             }else{
                 System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
-               System.out.println("GAME OVER!!!!!");
                 keepPlaying = false;
             }
     } }

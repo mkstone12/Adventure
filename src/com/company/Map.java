@@ -58,11 +58,11 @@ public class Map {
 
         Room4.addNewItem("key","Old Key", 1);
 
-        Room5.addNewItem("Rock","Dwayne The Rock Johnson", 99);
+        Room5.addNewItem("rock","Dwayne The Rock Johnson", 95);
 
         Room6.addNewItem("corpse","Rotten Corpse", 75);
 
-        Room7.addNewItem("eel","Slimey Eel", 14);
+        Room7.addRangedWeapon("eel","Slimey Eel", 14, 500, 1);
 
         Room8.addNewItem("umbrella","Red Umbrella", 4);
 
@@ -77,6 +77,10 @@ public class Map {
         Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("Brittle sword", " Brittle sword", 5, 5);
 
         Room1.createEnemy("Skeleton",20,skeletonWeapon);
+
+        Item_WeaponMelee Battery = new Item_WeaponMelee("Battery", " Battery", 99, 25);
+
+        Room8.createEnemy("The Duracell Bunny",500,Battery);
 
 
     }
