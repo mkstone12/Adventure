@@ -78,9 +78,9 @@ public class Map {
 
         Room1.createEnemy("Skeleton",20,skeletonWeapon);
 
-        Item_WeaponMelee Battery = new Item_WeaponMelee("Battery", " Battery", 99, 25);
+        Item_WeaponMelee CarrotSword = new Item_WeaponMelee("CarrotSword", " CarrotSword", 99, 25);
 
-        Room8.createEnemy("The Duracell Bunny",500,Battery);
+        Room8.createEnemy("Bunny",500,CarrotSword);
 
 
     }
