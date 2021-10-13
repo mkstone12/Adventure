@@ -47,12 +47,12 @@ public class Map {
 
         Room1.addNewItem("lamp", "Shiny Lamp", 5);
 
-        Room1.addWeaponMelee("sword", "Giant two handed sword", 40,10);
+        Room1.addWeaponMelee("sword", "Giant two handed sword", 40,20);
 
         Room1.addNewItem("carpet", "Purple Carpet", 30);
 
-        Room2.addNewItem("axe", "bloody axe", 13);
-        Room2.addNewItem("bread", "moldy bread", 1);
+        Room2.addWeaponMelee("axe", "bloody axe", 13,10);
+        Room2.addFood("bread", "moldy bread", 1,-20);
 
         Room3.addNewItem("log","Giant Log", 99);
 
@@ -71,14 +71,18 @@ public class Map {
 
         Room5Underground.addNewItem("test","Test",5);
 
-        Room1.addWeaponMelee("spear","Very Long Spear", 25,15);
+        Room1.addWeaponMelee("spear","Very Long Spear", 30,15);
         Room1.addFood("cake","Very nice cake", 5, 10);
 
         Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("Brittle sword", "Brittle sword", 5, 5);
 
         Room1.createEnemy("Skeleton",20,skeletonWeapon);
 
-        Item_WeaponMelee CarrotSword = new Item_WeaponMelee("CarrotSword", " CarrotSword", 99, 25);
+        Item_Weapon_Ranged Slingshot = new Item_Weapon_Ranged("Slingshot", "Slingshot", 5, 1, 1);
+
+        Room3.createEnemy("Goblin",50,Slingshot);
+
+        Item_WeaponMelee CarrotSword = new Item_WeaponMelee("CarrotSword", "CarrotSword", 99, 25);
 
         Room8.createEnemy("Bunny",500,CarrotSword);
 

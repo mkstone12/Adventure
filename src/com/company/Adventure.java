@@ -195,6 +195,7 @@ public class Adventure {
             }
 
 
+
         String wrongWay = "You cannot go this way";
 
         if(!isTakeOrDrop){
