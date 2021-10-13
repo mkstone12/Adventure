@@ -41,7 +41,7 @@ public class Adventure {
                         map.DiamondRoom();
                     }
                     for (int j = 0; j < map.Room4.getAllItems().size(); j++) {
-                        if (map.Room4.getAllItems().get(i).equals("key")) {
+                        if (map.Room4.getAllItems().get(j).equals("key")) {
                             map.HouseRoom();
                         }
                     }
