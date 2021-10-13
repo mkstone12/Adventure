@@ -173,16 +173,27 @@ public class Adventure {
             }
 
 
-            else if(choice.startsWith("attack ")){
+            else if(choice.startsWith("attack")){
                 if(player.isItemEquiped() == true){
-                    if( ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
-                attack(player, map);
+                    if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged){
+                        if(((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() != 0){
+                            attack(player, map);
+                            isTakeOrDrop = true;
+                            goodChoice = true;
+                        }
+                        else{
+                            System.out.println("You have no ammo");
+                        }
+
+                    }
+                    if(player.getWeaponEquiped() instanceof Item_WeaponMelee){
+                    attack(player, map);
                     isTakeOrDrop = true;
                     goodChoice = true;
 
                 }}
             else{
-                    System.out.println("you have no weapon equipped or no more ammo");}
+                System.out.println("you have no weapon equipped or no more ammo");}
                 isTakeOrDrop = true;
                 goodChoice = true;
 
@@ -365,7 +376,7 @@ public class Adventure {
             System.out.println("you hit the air");
             if(player.getWeaponEquiped() instanceof Item_Weapon_Ranged){
                 ((Item_Weapon_Ranged) player.getWeaponEquiped()).useAmmo();
-                System.out.println(  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft());
+                System.out.println( "You have " +  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() + " ammo left");
             }
         }
 
