@@ -74,6 +74,7 @@ public class Room {
         this.roomDesc = roomDesc;
     }
 
+
     public void addNewItem(String name, String longName,int weight){
         Item item = new Item(name,longName,weight);
         items.add(item);
@@ -90,10 +91,6 @@ public class Room {
     }
     public void addRangedWeapon(String name, String longName, int weight, int dmg, int uses){
         Item weapon = new Item_Weapon_Ranged(name,longName,weight,dmg, uses);
-        items.add(weapon);
-    }
-
-    public void addWeapon(Item_Weapon weapon){
         items.add(weapon);
     }
 
