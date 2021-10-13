@@ -57,12 +57,13 @@ public class Player {
             if (items.get(i).getName().equals(name)){
                 String item = items.get(i).getName();
                 currentRoom.addItem(items.get(i));
-                System.out.println("You have dropped the " + items.get(i).getName());
+
 
                 if(itemEquiped == true){
                     if(item.equals(weaponEquiped.getName())){
                         unequipWeapon(item);
                     }}
+                System.out.println("You have dropped the " + items.get(i).getName());
                 items.remove(i);
             }}}
     public void removeItem(String name){
