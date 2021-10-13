@@ -23,11 +23,6 @@ public class Enemy {
         return enemyName;
     }
 
-
-    public String enemyAttack(int attackDamage, int playerHealth, String enemyName){
-        playerHealth = playerHealth - attackDamage;
-        return enemyName+" attacked you!\nYou are at "+playerHealth+" health";
-    }
     public void takeDmg (int dmg){
         enemyHealth -= dmg;
     }
