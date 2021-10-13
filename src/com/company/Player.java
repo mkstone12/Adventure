@@ -65,6 +65,13 @@ public class Player {
                     }}
                 items.remove(i);
             }}}
+    public void removeItem(String name){
+        for (int i=0; i < items.size();i++){
+            if (items.get(i).getName().equals(name)){
+                String item = items.get(i).getName();
+                items.remove(i);
+            }}}
+
 
 
     public ArrayList<Item> getPlayerItems() {

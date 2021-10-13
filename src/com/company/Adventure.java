@@ -93,19 +93,19 @@ public class Adventure {
                 String food = choice.trim().substring(4);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
                     if (food.equals(player.getPlayerItems().get(i).getName())) {
-                        System.out.println(food);
 
                         if (player.getItem(food).getHpReg() != 0) {
                             player.regHp(player.getItem(food).getHpReg());
                             System.out.println("your health is now " + player.getHP());
+                            player.removeItem(food);
                             isTakeOrDrop = true;
                             goodChoice = true;
+                            i = 100;
 
                         } else {
                             System.out.println("You cannot eat this");
                             isTakeOrDrop = true;
                             goodChoice = true;
-
 
                         }
                     } else if (i == player.getPlayerItems().size() - 1) {
@@ -116,14 +116,7 @@ public class Adventure {
 
                     }
 
-                }
-                if (player.getPlayerItems().size() == 0) {
-                    System.out.println("Item does not exist");
-                }
-                isTakeOrDrop = true;
-                goodChoice = true;
-
-            }
+                }}
 
 
             else if (choice.startsWith("equip ")) {
