@@ -52,11 +52,12 @@ public class Adventure {
     public static boolean Command(Map map,  String choice, Player player){
         boolean goodChoice = false;
         boolean isTakeOrDrop = false;
-        if (choice.length() > 8) {
+       // if (choice.length() > 8) {
 
 
             if (choice.startsWith("take")) {
                 String item = choice.trim().substring(5);
+                System.out.println(choice);
                 for (int i = 0; i < map.currentRoom.getAllItems().size(); i++) {
                     if (item.equals(map.currentRoom.getAllItems().get(i))) {
                         player.takeItem(map.currentRoom.getItem(item));
@@ -95,12 +96,21 @@ public class Adventure {
                         if (player.getItem(food).getHpReg() != 0) {
                             player.regHp(player.getItem(food).getHpReg());
                             System.out.println("your health is now " + player.getHP());
+                            isTakeOrDrop = true;
+                            goodChoice = true;
+
                         } else {
                             System.out.println("You cannot eat this");
+                            isTakeOrDrop = true;
+                            goodChoice = true;
+
 
                         }
                     } else if (i == player.getPlayerItems().size() - 1) {
                         System.out.println("Item Does not exist");
+                        isTakeOrDrop = true;
+                        goodChoice = true;
+
 
                     }
 
@@ -119,8 +129,14 @@ public class Adventure {
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
                     if (weapon.equals(player.getPlayerItems().get(i).getName()) && player.isItemEquiped() == false) {
                         player.equipWeapon(player.getItem(weapon));
+                        isTakeOrDrop = true;
+                        goodChoice = true;
+
                         break;
                     } else if (i == player.getPlayerItems().size() - 1) {
+                        isTakeOrDrop = true;
+                        goodChoice = true;
+
                         System.out.println("Items does not exist");
                     }
                 }
@@ -129,6 +145,9 @@ public class Adventure {
                 goodChoice = true;
                 if (player.getPlayerItems().size() == 0) {
                     System.out.println("Item does not exist");
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
                 }
 
 
@@ -138,24 +157,34 @@ public class Adventure {
                 String weapon = choice.trim().substring(8);
                 if(player.isItemEquiped() == true){
                     player.unequipWeapon(weapon);
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
                 }
                 else{
                     System.out.println("no weapon equipped");
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
                 }
 
             }
 
 
             else if(choice.startsWith("attack")){
-                if(player.isItemEquiped() == true ||  ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
+                if(player.isItemEquiped() == true){
+                    if( ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
                 attack(player, map);
-            }
+                    isTakeOrDrop = true;
+                    goodChoice = true;
+
+                }}
             else{
                     System.out.println("you have no weapon equipped or no more ammo");}
+                isTakeOrDrop = true;
+                goodChoice = true;
+
             }
-            isTakeOrDrop = true;
-            goodChoice = true;
-        }
 
 
         String wrongWay = "You cannot go this way";
