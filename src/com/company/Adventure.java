@@ -121,6 +121,7 @@ public class Adventure {
 
             else if (choice.startsWith("equip ")) {
                 String weapon = choice.trim().substring(6);
+                if(player.getItem(weapon) instanceof Item_Weapon){
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
                     if (weapon.equals(player.getPlayerItems().get(i).getName()) && player.isItemEquiped() == false) {
                         player.equipWeapon(player.getItem(weapon));
@@ -134,12 +135,15 @@ public class Adventure {
 
                         System.out.println("Items does not exist");
                     }
+                }}
+                else{
+                    System.out.println("Cannot equip this");
                 }
 
                 isTakeOrDrop = true;
                 goodChoice = true;
                 if (player.getPlayerItems().size() == 0) {
-                    System.out.println("Item does not exist");
+                    System.out.println("Item does not exist or is not in your inventory");
                     isTakeOrDrop = true;
                     goodChoice = true;
 
@@ -350,9 +354,8 @@ public class Adventure {
             }
             else{
                 System.out.println("The enemy is dead!");
-                if(map.currentRoom.getEnemy().getWeapon() instanceof Item_Weapon_Ranged){
-                    map.currentRoom.addWeapon(map.currentRoom.getEnemy().getWeapon());
-                }
+                map.currentRoom.addWeapon(map.currentRoom.getEnemy().getWeapon());
+
 
                 map.currentRoom.setEnemy(null);
 
