@@ -55,7 +55,7 @@ public class Adventure {
        // if (choice.length() > 8) {
 
 
-            if (choice.startsWith("take")) {
+            if (choice.startsWith("take ")) {
                 String item = choice.trim().substring(5);
                 System.out.println(choice);
                 for (int i = 0; i < map.currentRoom.getAllItems().size(); i++) {
@@ -73,7 +73,7 @@ public class Adventure {
 
             }
             //Hvis vi skal smide noget væk
-            else if (choice.startsWith("drop")) {
+            else if (choice.startsWith("drop ")) {
                 String item = choice.trim().substring(5);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
 
@@ -89,10 +89,12 @@ public class Adventure {
                 goodChoice = true;
 
 
-            } else if (choice.startsWith("eat")) {
+            } else if (choice.startsWith("eat ")) {
                 String food = choice.trim().substring(4);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
-                    if (food.equals(player.getPlayerItems().get(i))) {
+                    if (food.equals(player.getPlayerItems().get(i).getName())) {
+                        System.out.println(food);
+
                         if (player.getItem(food).getHpReg() != 0) {
                             player.regHp(player.getItem(food).getHpReg());
                             System.out.println("your health is now " + player.getHP());
@@ -124,7 +126,7 @@ public class Adventure {
             }
 
 
-            else if (choice.startsWith("equip")) {
+            else if (choice.startsWith("equip ")) {
                 String weapon = choice.trim().substring(6);
                 for (int i = 0; i < player.getPlayerItems().size(); i++) {
                     if (weapon.equals(player.getPlayerItems().get(i).getName()) && player.isItemEquiped() == false) {
@@ -153,7 +155,7 @@ public class Adventure {
 
             }
 
-            else if(choice.startsWith("unequip")){
+            else if(choice.startsWith("unequip ")){
                 String weapon = choice.trim().substring(8);
                 if(player.isItemEquiped() == true){
                     player.unequipWeapon(weapon);
@@ -171,7 +173,7 @@ public class Adventure {
             }
 
 
-            else if(choice.startsWith("attack")){
+            else if(choice.startsWith("attack ")){
                 if(player.isItemEquiped() == true){
                     if( ((Item_Weapon_Ranged) player.getWeaponEquiped()).usesLeft() == 0){
                 attack(player, map);
