@@ -62,29 +62,30 @@ public class Map {
 
         Room6.addNewItem("corpse","Rotten Corpse", 75);
 
-        Room7.addRangedWeapon("eel","Slimey Eel", 14, 500, 1);
+        Room7.addRangedWeapon("eel","Slimey Eel", 14, 50, 1);
 
         Room8.addNewItem("umbrella","Red Umbrella", 4);
 
         Room9.addNewItem("diamond","Diamond", 5);
         Room9.addNewItem("spear","Very Long Spear", 25);
 
-        Room5Underground.addNewItem("test","Test",5);
 
         Room1.addWeaponMelee("spear","Very Long Spear", 30,15);
         Room1.addFood("cake","Very nice cake", 5, 10);
 
-        Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("Brittle sword", "Brittle sword", 5, 5);
+        Item_WeaponMelee skeletonWeapon = new Item_WeaponMelee("brittle sword", "Brittle sword", 5, 5);
 
         Room1.createEnemy("Skeleton",20,skeletonWeapon);
 
-        Item_Weapon_Ranged Slingshot = new Item_Weapon_Ranged("Slingshot", "Slingshot", 5, 1, 1);
+        Item_Weapon_Ranged Slingshot = new Item_Weapon_Ranged("slingshot", "Slingshot", 5, 1, 1);
 
         Room3.createEnemy("Goblin",50,Slingshot);
 
-        Item_WeaponMelee CarrotSword = new Item_WeaponMelee("CarrotSword", "CarrotSword", 99, 25);
+        Item_WeaponMelee CarrotSword = new Item_WeaponMelee("carrotsword", "CarrotSword", 99, 25);
 
         Room8.createEnemy("Bunny",500,CarrotSword);
+
+        Room5Underground.addWeaponMelee("bunny slayer", "Bunny Slayer", 1, 500);
 
 
     }
