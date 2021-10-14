@@ -22,6 +22,8 @@ public class Adventure {
         System.out.println("""
                 Hey welcome to the Adventure game. You are trying to find the secret treasure hidden in the forest
                 The forest is know to be dangerous so keep on your guard.
+                
+                Type help for help with controls
 
                 """);
 
@@ -46,7 +48,7 @@ public class Adventure {
                         }
                     }
                 }
-                if (player.getHP() < 0) {
+                if (player.getHP() <= 0) {
                     System.out.println("YOU DIED AHAHAHAHAHAHAHAHAHAHAHAHAHA AND LOST");
                     keepPlaying = false;
                 }
@@ -276,7 +278,9 @@ public class Adventure {
             }
             case "help" ->
                 System.out.println("To go in any direction type that direction (north, south, east, west, up or down). " +
-                        "To get a description of where you are, type look.");
+                        "To get a description of where you are, type \"look\".\nYou can type \"take\" to put items into your inventory and \"drop\" to drop them. \n" +
+                        "You can equip weapons by typing \"equip\" and the items name. While you have a weapon equipped you can attack by typing \"attack\" and the enemy's name.\n" +
+                        "You can also eat some items by typing \"eat\" and item name and you can type i to see what you are carrying.");
 
 
             case "quit", "exit" -> {

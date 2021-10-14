@@ -73,7 +73,6 @@ public class Map {
         Room8.addNewItem("umbrella","Red Umbrella", 4);
 
         Room9.addNewItem("diamond","Diamond", 5);
-        Room9.addNewItem("spear","Very Long Spear", 25);
         Room9.addWeaponMelee("spear","Very Long Spear", 30,15);
         Room9.addFood("pork","a roasted pig", 5, 35);
 
